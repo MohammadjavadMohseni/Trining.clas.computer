@@ -1,5 +1,6 @@
 package trainig.shape.twodshape;
 
+import java.awt.geom.Point2D;
 import trainig.shape.Point;
 
 public class Triangle extends TwodShape {
@@ -46,9 +47,17 @@ public class Triangle extends TwodShape {
         int xxx = p3.getx() - p1.getx();
         int yyy = p3.gety() - p1.gety();
         double c = Math.sqrt(xxx*xxx + yyy*yyy);
-        double s = a + b + c / 2;
+        double s = (a + b + c) / 2;
         double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
         return area;
+        distanc(Point z1, Point z2) {
+        int zx = (z1.getx() - z2.getx()) * (z1.getx() - z2.getx());
+        int zy = (z1.gety() - z2.gety()) * (z1.gety() - z2.gety());
+        Math.sqrt(zx + zy);
+        Point z1 = new Point(x, y);
+        Point z2 = new Point(x, y);
+        return a;
+    }
     }
 
 }

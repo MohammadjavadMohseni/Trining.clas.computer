@@ -27,9 +27,12 @@ public class Geometry {
         sh = sq;
         System.err.println("==> " + sh.area());
         
-        Triangle tr = new Triangle();
+        Triangle tr = new Triangle("Triangle");
         tr.setp1(new Point(10, 100));
         tr.setp2(new Point(10, 10));
         tr.setp3(new Point(100, 10));
+        System.err.println("==> area of " + tr.getTitle() + " is : " + tr.area());
+        sh = tr;
+        System.err.println("==> " + sh.area());
     }
 }
