@@ -1,4 +1,4 @@
-package trainig.shape.twodshape;
+package trainig.shape.twodshape.quadrilateral;
 
 public class Square extends Rectangle {
     
@@ -10,5 +10,10 @@ public class Square extends Rectangle {
     public double area() {
         double d = super.area();
         return d;
+    }
+    
+    @Override
+    public boolean validate(){
+        return false;
     }
 }

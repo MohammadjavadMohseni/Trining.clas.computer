@@ -1,12 +1,11 @@
 package trainig.shape.twodshape;
 
-import java.awt.geom.Point2D;
 import trainig.shape.Point;
 
 public class Triangle extends TwodShape {
-    private Point p1;
-    private Point p2;
-    private Point p3;
+    public Point p1;
+    public Point p2;
+    public Point p3;
 
     public Triangle(String name) {
         super("Triangle");
@@ -50,14 +49,20 @@ public class Triangle extends TwodShape {
         double s = (a + b + c) / 2;
         double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
         return area;
-        distanc(Point z1, Point z2) {
-        int zx = (z1.getx() - z2.getx()) * (z1.getx() - z2.getx());
-        int zy = (z1.gety() - z2.gety()) * (z1.gety() - z2.gety());
-        Math.sqrt(zx + zy);
-        Point z1 = new Point(x, y);
-        Point z2 = new Point(x, y);
-        return a;
     }
+    
+    private double area(String x) {
+        double a = distanc(p3, p2);
+        double b = distanc(p1, p2);
+        double c = distanc(p3, p1);
+        double s = (a + b + c) / 2;
+        double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+        return area;
+    }
+    
+    @Override
+    public boolean validate() {
+        return false;
     }
 
 }
