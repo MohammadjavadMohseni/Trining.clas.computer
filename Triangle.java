@@ -35,14 +35,13 @@ public class Triangle extends TwodShape {
         this.p3 = p3;
     }
     
-    public Triangle t(Point p1, Point p2, Point p3) {
-        Triangle t = new Triangle("Triangle");
-        t.setP1(p1);
-        t.setP2(p2);
-        t.setP3(p3);
-        return t;
+    public void Triangle(Point z1, Point z2, Point z3) {
+        Triangle tx = new Triangle("Triangle");
+        this.setP1(z1);
+        this.setP2(z2);
+        this.setP3(z3);
     }
-
+    
     @Override
     public double area() {
         int x = p3.getx() - p2.getx();
