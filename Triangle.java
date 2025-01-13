@@ -3,36 +3,44 @@ package trainig.shape.twodshape;
 import trainig.shape.Point;
 
 public class Triangle extends TwodShape {
-    public Point p1;
-    public Point p2;
-    public Point p3;
-
+    private Point p1;
+    private Point p2;
+    private Point p3;
+    
     public Triangle(String name) {
         super("Triangle");
     }
     
-    public Point getp1() {
+    public Point getP1() {
         return p1;
     }
     
-    public void setp1(Point p1) {
+    public void setP1(Point p1) {
         this.p1 = p1;
     }
     
-    public Point getp2() {
+    public Point getP2() {
         return p2;
     }
     
-    public void setp2(Point p2) {
+    public void setP2(Point p2) {
         this.p2 = p2;
     }
     
-    public Point getp3() {
+    public Point getP3() {
         return p3;
     }
     
-    public void setp3(Point p3) {
+    public void setP3(Point p3) {
         this.p3 = p3;
+    }
+    
+    public Triangle t(Point p1, Point p2, Point p3) {
+        Triangle t = new Triangle("Triangle");
+        t.setP1(p1);
+        t.setP2(p2);
+        t.setP3(p3);
+        return t;
     }
 
     @Override
