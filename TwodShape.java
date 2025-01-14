@@ -24,7 +24,7 @@ public abstract class TwodShape extends Shape{
         if (z1.gety() == z2.gety()) {
             return z3.gety() == z1.gety();
         }
-        return z3.gety() == ((1.0 * z1.gety() - z2.gety()) / (z1.getx() - z2.getx())) * (z3.getx() - z1.getx())
+        return z3.gety() == ((1.0 * z1.gety() - z2.gety()) / (z1.getx() - z2.getx())) * (z3.getx() - z1.getx()) + z1.gety();
         
     }
     
