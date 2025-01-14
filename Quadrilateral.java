@@ -60,10 +60,10 @@ public abstract class Quadrilateral extends TwodShape {
     @Override
     public boolean validate() {
         if (line(p1, p2, p3)) {
-            System.err.println(" ==> is not Quadrilateral ");
+            return false;
         }
         if (line(p3, p4, p1)) {
-            System.err.println(" ==> is not Quadrilateral ");
+            return false;
         }
         return true;
     }
