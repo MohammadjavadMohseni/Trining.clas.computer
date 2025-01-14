@@ -52,12 +52,8 @@ public abstract class Quadrilateral extends TwodShape {
     
     @Override
     public double area() {
-        Triangle t1 = new Triangle("");
-        Triangle t2 = new Triangle("");
-        t1 = Triangle(p1, p2, p4);
-        
-        double area = t1.area() + t2.area();
-        return area;
+        Triangle t1 = new Triangle(p1, p2, p4);
+        Triangle t2 = new Triangle(p4, p2, p3);
+        return t1.area() + t2.area();
     }
-
 }

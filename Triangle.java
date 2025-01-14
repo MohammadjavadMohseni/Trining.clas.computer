@@ -15,7 +15,7 @@ public class Triangle extends TwodShape {
         return p1;
     }
     
-    public void setP1(Point p1) {
+    public final void setP1(Point p1) {
         this.p1 = p1;
     }
     
@@ -23,7 +23,7 @@ public class Triangle extends TwodShape {
         return p2;
     }
     
-    public void setP2(Point p2) {
+    public final void setP2(Point p2) {
         this.p2 = p2;
     }
     
@@ -31,15 +31,15 @@ public class Triangle extends TwodShape {
         return p3;
     }
     
-    public void setP3(Point p3) {
+    public final void setP3(Point p3) {
         this.p3 = p3;
     }
     
-    public void Triangle(Point z1, Point z2, Point z3) {
-        Triangle tx = new Triangle("Triangle");
-        this.setP1(z1);
-        this.setP2(z2);
-        this.setP3(z3);
+    public Triangle(Point z1, Point z2, Point z3) {
+        super("Triaangle");
+        setP1(z1);
+        setP2(z2);
+        setP3(z3);
     }
     
     @Override
