@@ -33,8 +33,9 @@ public abstract class TwodShape extends Shape{
         }
         
         if (y != m * xx + b) {
-            System.err.println(" ==> ");
+            System.err.println(" ==> is not lin ");
         }
+        return line;
     }
     
     public abstract double area();
