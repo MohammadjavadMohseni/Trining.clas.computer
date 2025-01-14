@@ -17,25 +17,15 @@ public abstract class TwodShape extends Shape{
         return a;
     }
     
-    public double line(Point z1, Point z2, Point z3) {
-        double x = z3.getx();
-        double y = z3.gety();
-        double m = (z1.gety() - z2.gety()) / (z1.getx() - z2.getx());
-        double xx = x - z1.getx();
-        double b = z1.gety();
-        double line = (y = m * xx + b);
-        if (z1.gety() - z2.gety() == 0) {
-            return y = b;
+    public boolean line(Point z1, Point z2, Point z3) {
+        if (z1.getx() == z2.getx()) {
+            return z3.getx() == z1.getx();
         }
+        if (z1.gety() == z2.gety()) {
+            return z3.gety() == z1.gety();
+        }
+        return z3.gety() == ((1.0 * z1.gety() - z2.gety()) / (z1.getx() - z2.getx())) * (z3.getx() - z1.getx())
         
-        if (z1.getx() - z2.getx() == 0) {
-            return y = (y + b) - b;
-        }
-        
-        if (y != m * xx + b) {
-            System.err.println(" ==> is not lin ");
-        }
-        return line;
     }
     
     public abstract double area();
