@@ -56,4 +56,15 @@ public abstract class Quadrilateral extends TwodShape {
         Triangle t2 = new Triangle(p4, p2, p3);
         return t1.area() + t2.area();
     }
+    
+    @Override
+    public boolean validate() {
+        if (line(p1, p2, p3)) {
+            System.err.println(" ==> is not Quadrilateral ");
+        }
+        if (line(p3, p4, p1)) {
+            System.err.println(" ==> is not Quadrilateral ");
+        }
+        return true;
+    }
 }

@@ -69,7 +69,10 @@ public class Triangle extends TwodShape {
     
     @Override
     public boolean validate() {
-        return false;
+        if (line(p1, p2, p3)) {
+            System.err.println(" ==> is not Triangle ");
+        }
+        return true;
     }
 
 }
