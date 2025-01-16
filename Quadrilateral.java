@@ -9,6 +9,8 @@ public abstract class Quadrilateral extends TwodShape {
     protected Point p2;
     protected Point p3;
     protected Point p4;
+    protected Point p5;
+    protected Point p6;
     
     public Quadrilateral() {
         super("Quadrilateral");
@@ -50,6 +52,41 @@ public abstract class Quadrilateral extends TwodShape {
         this.p4 = p4;
     }
     
+    private Point getP5() {
+        return p5;
+    }
+    
+    private void setP5(Point p5) {
+        this.p5 = p5;
+    }
+    
+    private Point getP6() {
+        return p6;
+    }
+    
+    private void setP6(Point p6) {
+        this.p6 = p6;
+    }
+    
+    public Point intersection() { 
+        line(p1, p3, p5);
+        line(p2, p4, p6);
+        if (p5 != p6) {
+            return p6;
+        }
+        return p5;
+    }
+    
+    public boolean Intersection (Point z1, Point z2, Point z3) {
+        distanc(z1, z2);
+        distanc(z2, z3);
+        distanc(z1, z3);
+        if (distanc(z1, z2) + distanc(z2, z3) == distanc(z1, z3)) {
+            return false;
+        }
+        return true;
+    }
+    
     @Override
     public double area() {
         Triangle t1 = new Triangle(p1, p2, p4);
@@ -62,7 +99,31 @@ public abstract class Quadrilateral extends TwodShape {
         if (line(p1, p2, p3)) {
             return false;
         }
+        if (line(p1, p2, p4)) {
+            return false;
+        }
+        if (line(p2, p3, p4)) {
+            return false;
+        }
+        if (line(p2, p3, p1)) {
+            return false;
+        }
         if (line(p3, p4, p1)) {
+            return false;
+        }
+        if (line(p3, p4, p2)) {
+            return false;
+        }
+        if (line(p4, p1, p2)) {
+            return false;
+        }
+        if (line(p4, p1, p3)) {
+            return false;
+        }
+        if (Intersection(p1, intersection(), p3)) {
+            return false;
+        }
+        if (Intersection(p2, intersection(), p4)) {
             return false;
         }
         return true;

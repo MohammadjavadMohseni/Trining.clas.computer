@@ -44,14 +44,14 @@ public class Triangle extends TwodShape {
     
     @Override
     public double area() {
-        int x = p3.getx() - p2.getx();
-        int y = p3.gety() - p2.gety();
+        int x = p3.getX() - p2.getX();
+        int y = p3.getY() - p2.getY();
         double a = Math.sqrt(x*x + y*y);
-        int xx = p1.getx() - p2.getx();
-        int yy = p1.gety() - p2.gety();
+        int xx = p1.getX() - p2.getX();
+        int yy = p1.getY() - p2.getY();
         double b = Math.sqrt(xx*xx + yy*yy);
-        int xxx = p3.getx() - p1.getx();
-        int yyy = p3.gety() - p1.gety();
+        int xxx = p3.getX() - p1.getX();
+        int yyy = p3.getY() - p1.getY();
         double c = Math.sqrt(xxx*xxx + yyy*yyy);
         double s = (a + b + c) / 2;
         double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
@@ -69,10 +69,7 @@ public class Triangle extends TwodShape {
     
     @Override
     public boolean validate() {
-        if (line(p1, p2, p3)) {
-            System.err.println(" ==> is not Triangle ");
-        }
-        return true;
+        return !line(p1, p2, p3);
     }
 
 }

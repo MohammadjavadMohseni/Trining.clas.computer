@@ -11,11 +11,11 @@ public class Rectangle extends Quadrilateral {
 
     @Override
     public double area() {
-        int x = p2.getx() - p1.getx();
-        int y = p2.gety() - p1.gety();
+        int x = p2.getX() - p1.getX();
+        int y = p2.getY() - p1.getY();
         double a = Math.sqrt(x*x + y*y);
-        x = p2.getx() - p3.getx();
-        y = p2.gety() - p3.gety();
+        x = p2.getX() - p3.getX();
+        y = p2.getY() - p3.getY();
         double b = Math.sqrt(x*x + y*y);
         double area = a*b;
         return area;
