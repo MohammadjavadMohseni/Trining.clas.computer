@@ -50,35 +50,33 @@ public abstract class Quadrilateral extends TwodShape {
         this.p4 = p4;
     }
     
-    public boolean isDiagonalQuad() {
-        Point i = intersection();
+    public Point intersection() {
         if (p1.getX() == p3.getX()) {
-            return x1 = p1.getX();
+            
         }
-        if (p1.getY() == p3.getY()) {
-            return y1 = p1.getY();
-        }
-        double x2 = (b2 - b1) / (m1 - m2);
         if (p2.getX() == p4.getX()) {
-            return x2 == p2.getX();
+            
         }
-        double y2 = ((1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX())) * x2 + (-((1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX())) * p2.getX() + p2.getY());
-        if (p2.getY() == p4.getY()) {
-            return y2 == p2.getY();
-        }
+        if ((p1.getX() - p3.getX()) == ())
         double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
         double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
         double b1 = -m1 * p1.getX() + p1.getY();
-        double b2 = -m2 * p2.getX() + p2.getY();
+        double b2 = -m1 * p2.getX() + p2.getY();
         if (m1 == m2) {
             System.err.println("");
         }
-        double x1 = (b2 - b1) / (m1 - m2);
-        double x2 = (b2 - b1) / (m1 - m2);
-        double y1 = m1 * x1 + b1;
-        double y2 = m2 * x2 + b2;
-        return Y = y1 == y2;
-        return X = x1 == x2;
+        double x = (b2 - b1) / (m1 - m2);
+        double y = m1 * x + b1;
+        Point p = new Point();
+        p.setX((int) x);
+        p.setY((int) y);
+        return p;
+    }
+    
+    public boolean isDiagonalQuad() {
+        Point i = intersection();
+        return !(distanc(p2, i) + distanc(i, p4) == distanc(p2, p4) &&
+                distanc(p1, i) + distanc(i, p3) == distanc(p1, p3));
     }
     
     @Override
@@ -112,6 +110,9 @@ public abstract class Quadrilateral extends TwodShape {
             return false;
         }
         if (line(p4, p1, p3)) {
+            return false;
+        }
+        if (isDiagonalQuad()) {
             return false;
         }
         return true;
