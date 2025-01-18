@@ -9,8 +9,6 @@ public abstract class Quadrilateral extends TwodShape {
     protected Point p2;
     protected Point p3;
     protected Point p4;
-    protected Point p5;
-    protected Point p6;
     
     public Quadrilateral() {
         super("Quadrilateral");
@@ -52,39 +50,35 @@ public abstract class Quadrilateral extends TwodShape {
         this.p4 = p4;
     }
     
-    private Point getP5() {
-        return p5;
-    }
-    
-    private void setP5(Point p5) {
-        this.p5 = p5;
-    }
-    
-    private Point getP6() {
-        return p6;
-    }
-    
-    private void setP6(Point p6) {
-        this.p6 = p6;
-    }
-    
-    public Point intersection() { 
-        line(p1, p3, p5);
-        line(p2, p4, p6);
-        if (p5 != p6) {
-            return p6;
+    public boolean isDiagonalQuad() {
+        Point i = intersection();
+        if (p1.getX() == p3.getX()) {
+            return x1 = p1.getX();
         }
-        return p5;
-    }
-    
-    public boolean Intersection (Point z1, Point z2, Point z3) {
-        distanc(z1, z2);
-        distanc(z2, z3);
-        distanc(z1, z3);
-        if (distanc(z1, z2) + distanc(z2, z3) == distanc(z1, z3)) {
-            return false;
+        if (p1.getY() == p3.getY()) {
+            return y1 = p1.getY();
         }
-        return true;
+        double x2 = (b2 - b1) / (m1 - m2);
+        if (p2.getX() == p4.getX()) {
+            return x2 == p2.getX();
+        }
+        double y2 = ((1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX())) * x2 + (-((1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX())) * p2.getX() + p2.getY());
+        if (p2.getY() == p4.getY()) {
+            return y2 == p2.getY();
+        }
+        double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
+        double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
+        double b1 = -m1 * p1.getX() + p1.getY();
+        double b2 = -m2 * p2.getX() + p2.getY();
+        if (m1 == m2) {
+            System.err.println("");
+        }
+        double x1 = (b2 - b1) / (m1 - m2);
+        double x2 = (b2 - b1) / (m1 - m2);
+        double y1 = m1 * x1 + b1;
+        double y2 = m2 * x2 + b2;
+        return Y = y1 == y2;
+        return X = x1 == x2;
     }
     
     @Override
@@ -120,12 +114,7 @@ public abstract class Quadrilateral extends TwodShape {
         if (line(p4, p1, p3)) {
             return false;
         }
-        if (Intersection(p1, intersection(), p3)) {
-            return false;
-        }
-        if (Intersection(p2, intersection(), p4)) {
-            return false;
-        }
         return true;
     }
+
 }
