@@ -57,7 +57,9 @@ public abstract class Quadrilateral extends TwodShape {
         if (p2.getX() == p4.getX()) {
             
         }
-        if ((p1.getX() - p3.getX()) == ())
+        if ((p1.getX() - p3.getX()) == (p2.getX() - p4.getX())) {
+            System.err.println("");
+        }
         double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
         double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
         double b1 = -m1 * p1.getX() + p1.getY();

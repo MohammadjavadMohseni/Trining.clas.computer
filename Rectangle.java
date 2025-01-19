@@ -1,6 +1,7 @@
 package trainig.shape.twodshape.quadrilateral;
 
-public class Rectangle extends Quadrilateral {
+public class Rectangle extends Parallelogram {
+    
     public Rectangle() {
         super("Rectangle");
     }
@@ -23,7 +24,9 @@ public class Rectangle extends Quadrilateral {
 
     @Override
     public boolean validate() {
-        return false;
+        return (2 * (distanc(p1, p4) * distanc(p1, p4))) + 
+                (2 * (distanc(p4, p3) * distanc(p4, p3))) == 
+                 2 * (distanc(p1, p3) * distanc(p1, p3));
     }
     
 }

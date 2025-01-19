@@ -14,6 +14,7 @@ public class Square extends Rectangle {
     
     @Override
     public boolean validate(){
-        return false;
+        return 4 * (distanc(p1, p4) * distanc(p1, p4)) == 
+                2 * (distanc(p1, p3) * distanc(p1, p3))
     }
 }

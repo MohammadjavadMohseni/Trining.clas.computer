@@ -36,12 +36,7 @@ public class Geometry {
         sh = tr;
         System.err.println("==> " + sh.area());
         
-        Quadrilateral qu = new Quadrilateral() {
-            @Override
-            public boolean validate() {
-                return false;
-            }
-        };
+        Quadrilateral qu = new Quadrilateral("Quadrilateral");
         qu.setP1(new Point(0, 0));
         qu.setP2(new Point(100, 0));
         qu.setP3(new Point(100, 100));
