@@ -132,7 +132,7 @@ public abstract class Quadrilateral extends TwodShape {
         return p;
     }
     
-    private Point intersection(String z1) {
+    public Point intersection(String z1) {
         if (p1.getX() == p3.getX()) {
             
             if (p2.getX() == p4.getX()) {
@@ -209,7 +209,7 @@ public abstract class Quadrilateral extends TwodShape {
         return p;
     }
     
-    private Point intersection(Point pz) {
+    public Point intersection(Point pz) {
         if (p1.getX() == p3.getX() && p2.getX() == p4.getX()) {
             System.err.println(" ==> not or infinity answer ");
             
@@ -257,6 +257,18 @@ public abstract class Quadrilateral extends TwodShape {
                 distanc(p1, i) + distanc(i, p3) == distanc(p1, p3));
     }
     
+    public boolean isDiagonalQuad(String z1) {
+        Point i = intersection("String z1");
+        return !(distanc(p2, i) + distanc(i, p4) == distanc(p2, p4) &&
+                distanc(p1, i) + distanc(i, p3) == distanc(p1, p3));
+    }
+    
+    public boolean isDiagonalQuad(Point pz) {
+        Point i = intersection("Point pz");
+        return !(distanc(p2, i) + distanc(i, p4) == distanc(p2, p4) &&
+                distanc(p1, i) + distanc(i, p3) == distanc(p1, p3));
+    }
+    
     @Override
     public double area() {
         Triangle t1 = new Triangle(p1, p2, p4);
@@ -291,6 +303,12 @@ public abstract class Quadrilateral extends TwodShape {
             return false;
         }
         if (isDiagonalQuad()) {
+            return false;
+        }
+        if (isDiagonalQuad("String z1")) {
+            return false;
+        }
+        if (isDiagonalQuad("Point pz")) {
             return false;
         }
         return true;
