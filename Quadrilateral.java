@@ -51,34 +51,29 @@ public abstract class Quadrilateral extends TwodShape {
     }
     
     public Point intersection() {
+        Point p = new Point();
         if (p1.getX() == p3.getX()) {
             
             if (p2.getX() == p4.getX()) {
                 System.err.println(" ==> not or infinit answer ");
                 
             } else if (p2.getY() == p4.getY()) {
-                Point p = new Point();
                 p.setX(p1.getX());
                 p.setY(p2.getY());
-                return p;
                 
             } else {
                 double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
                 double b2 = -m2 * p2.getX() + p2.getY();
                 double y = m2 * p1.getX() + b2;
-                Point p = new Point();
                 p.setX(p1.getX());
                 p.setY((int) y);
-                return p;
             }
             
         } else if (p1.getY() == p3.getY()) {
             
             if (p2.getX() == p4.getX()) {
-                Point p = new Point();
                 p.setX(p2.getX());
                 p.setY(p1.getY());
-                return p;
                 
             } else if (p2.getY() == p4.getY()) {
                 System.err.println(" ==> not or infinit answer ");
@@ -87,10 +82,8 @@ public abstract class Quadrilateral extends TwodShape {
                 double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
                 double b2 = -m2 * p2.getX() + p2.getY();
                 double x = (b2 - p1.getY()) / m2;
-                Point p = new Point();
                 p.setX((int) x);
                 p.setY(p1.getY());
-                return p;
             }
             
         } else {
@@ -99,23 +92,18 @@ public abstract class Quadrilateral extends TwodShape {
                double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
                double b1 = -m1 * p1.getX() + p1.getY();
                double y = m1 * p2.getX() + b1;
-               Point p = new Point();
                 p.setX(p2.getX());
                 p.setY((int) y);
-                return p;
                 
             } else if (p2.getY() == p4.getY()) {
                 double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
                 double b1 = -m1 * p1.getX() + p1.getY();
                 double x = (p2.getY() - b1) / m1;
-                Point p = new Point();
                 p.setX((int) x);
                 p.setY(p2.getY());
-                return p;
                 
-            }
-        }
-        double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
+            } else {
+                double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
         double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
         double b1 = -m1 * p1.getX() + p1.getY();
         double b2 = -m2 * p2.getX() + p2.getY();
@@ -124,13 +112,15 @@ public abstract class Quadrilateral extends TwodShape {
         }
         double x = (b2 - b1) / (m1 - m2);
         double y = m1 * x + b1;
-        Point p = new Point();
         p.setX((int) x);
         p.setY((int) y);
+            }
+        }
         return p;
     }
     
     public Point intersection(String z1) {
+        Point p = new Point();
         if (p1.getX() == p3.getX()) {
             
             if (p2.getX() == p4.getX()) {
@@ -140,10 +130,8 @@ public abstract class Quadrilateral extends TwodShape {
                 double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
                 double b2 = -m2 * p2.getX() + p2.getY();
                 double y = m2 * p1.getX() + b2;
-                Point p = new Point();
                 p.setX(p1.getX());
                 p.setY((int) y);
-                return p;
             }
             
         } else {
@@ -152,51 +140,46 @@ public abstract class Quadrilateral extends TwodShape {
                 double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
                 double b1 = -m1 * p1.getX() + p1.getY();
                 double y = m1 * p2.getX() + b1;
-                Point p = new Point();
                 p.setX(p2.getX());
                 p.setY((int) y);
-                return p;
-            }
-            
-            if (p1.getY() == p3.getY() && p2.getY() == p4.getY()) {
+                
+            } else if (p1.getY() == p3.getY() && p2.getY() == p4.getY()) {
                 System.err.println(" ==> not or infinit answer ");
+                
+            } else {
+                double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
+                double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
+                double b1 = -m1 * p1.getX() + p1.getY();
+                double b2 = -m2 * p2.getX() + p2.getY();
+                if (m1 == m2) {
+                    System.err.println(" ==> not or infinit answer ");
+                }
+                double x = (b2 - b1) / (m1 - m2);
+                double y = m1 * x + b1;
+                p.setX((int) x);
+                p.setY((int) y);
             }
         }
-        double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
-        double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
-        double b1 = -m1 * p1.getX() + p1.getY();
-        double b2 = -m2 * p2.getX() + p2.getY();
-        if (m1 == m2) {
-            System.err.println(" ==> not or infinit answer ");
-        }
-        double x = (b2 - b1) / (m1 - m2);
-        double y = m1 * x + b1;
-        Point p = new Point();
-        p.setX((int) x);
-        p.setY((int) y);
         return p;
     }
     
     public Point intersection(Point pz) {
+        Point p = new Point();
         if (p1.getX() == p3.getX() && (p2.getX() == p4.getX() || p2.getY() == p4.getY())) {
             
             if (p1.getX() == p3.getX() && p2.getX() == p4.getX()) {
             System.err.println(" ==> not or infinit answer ");
             
             } else if (p1.getX() == p3.getX() && p2.getY() == p4.getY()) {
-                Point p = new Point();
                 p.setX(p1.getX());
                 p.setY(p2.getY());
-                return p;
             }
             
         } else if (p1.getY() == p3.getY() && (p2.getY() == p4.getY() || p2.getX() == p4.getX())) {
             
             if (p1.getY() == p3.getY() && p2.getX() == p4.getX()) {
-                Point p = new Point();
                 p.setX(p2.getX());
                 p.setY(p1.getY());
-                return p;
                 
             } else if (p1.getY() == p3.getY() && p2.getY() == p4.getY()){
             System.err.println(" ==> not or infinity answer ");
@@ -208,34 +191,29 @@ public abstract class Quadrilateral extends TwodShape {
                 double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
                 double b2 = -m2 * p2.getX() + p2.getY();
                 double y = m2 * p1.getX() + b2;
-                Point p = new Point();
                 p.setX(p1.getX());
                 p.setY((int) y);
-                return p;
-            }
-            
-            if (p2.getX() == p4.getX()) {
+                
+            } else if (p2.getX() == p4.getX()) {
                double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
                double b1 = -m1 * p1.getX() + p1.getY();
                double y = m1 * p2.getX() + b1;
-               Point p = new Point();
                 p.setX(p2.getX());
                 p.setY((int) y);
-                return p;
+            } else {
+                double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
+                double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
+                double b1 = -m1 * p1.getX() + p1.getY();
+                double b2 = -m2 * p2.getX() + p2.getY();
+                if (m1 == m2) {
+                    System.err.println(" ==> not or infinit answer ");
+                }
+                double x = (b2 - b1) / (m1 - m2);
+                double y = m1 * x + b1;
+                p.setX((int) x);
+                p.setY((int) y);
             }
         }
-        double m1 = (1.0 * p1.getY() - p3.getY()) / (p1.getX() - p3.getX());
-        double m2 = (1.0 * p2.getY() - p4.getY()) / (p2.getX() - p4.getX());
-        double b1 = -m1 * p1.getX() + p1.getY();
-        double b2 = -m2 * p2.getX() + p2.getY();
-        if (m1 == m2) {
-            System.err.println(" ==> not or infinit answer ");
-        }
-        double x = (b2 - b1) / (m1 - m2);
-        double y = m1 * x + b1;
-        Point p = new Point();
-        p.setX((int) x);
-        p.setY((int) y);
         return p;
     }
     
