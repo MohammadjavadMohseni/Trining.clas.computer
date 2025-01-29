@@ -7,7 +7,7 @@ public class MirrorWrite {
         if (x == null) {
             z = null;
             
-        } else if (x.isBlank("")) {
+        } else if (x.isBlank()) {
             z = "";
             
         } else {
