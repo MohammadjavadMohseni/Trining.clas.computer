@@ -3,7 +3,6 @@ package trainig.string;
 public class MirrorWrite {
     
     public String mirror(String x) {
-        int a = x.length();
         String z = "";
         if (x == null) {
             z = null;
@@ -12,6 +11,7 @@ public class MirrorWrite {
             z = "";
             
         } else {
+            int a = x.length();
             while (a > 0) {
                 z = z + x.charAt(a = a - 1);
             }
