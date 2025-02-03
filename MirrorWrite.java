@@ -22,7 +22,7 @@ public class MirrorWrite {
         return z;
     }
     
-    public Array mirrorArray(String x) {
+    private String mirrorArray(String x) {
         Array arr[];
         if (x == null) {
             arr = null;
@@ -41,13 +41,15 @@ public class MirrorWrite {
         return arr;
     }
     
-    public StringBuilder mirrorStringBuilder(String x) {
+    public String mirrorStringBuilder(String x) {
         String y = "";
         StringBuilder z;
         if (x == null) {
             z = null;
+            y = null;
         } else if (x.isBlank()) {
             z.append("");
+            
         } else {
             int a = x.length();
             while (a > 0) {
@@ -55,7 +57,8 @@ public class MirrorWrite {
                 z = z.append(a);
             }
         }
-        return z;
+        y = y + z;
+        return y;
     }
     
     public static void main(String[] args) {
@@ -64,6 +67,10 @@ public class MirrorWrite {
         System.err.println(" ==> " + m.mirror("a"));
         System.err.println(" ==> " + m.mirror(""));
         System.err.println(" ==> " + m.mirror(null));
+        System.err.println(" ==> " + m.mirrorStringBuilder("xsdfefrrbfv"));
+        System.err.println(" ==> " + m.mirrorStringBuilder("a"));
+        System.err.println(" ==> " + m.mirrorStringBuilder(""));
+        System.err.println(" ==> " + m.mirrorStringBuilder(null));
         System.err.println(" ==> " + m.mirrorArray("xsdfefrrbfv"));
         System.err.println(" ==> " + m.mirrorArray("a"));
         System.err.println(" ==> " + m.mirrorArray(""));
