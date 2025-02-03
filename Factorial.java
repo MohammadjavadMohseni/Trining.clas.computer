@@ -22,6 +22,7 @@ public class Factorial {
     }
     
     private Factorial(String z) {
+        z = "";
     }
     
     public static void main(String[] args) {
