@@ -1,6 +1,7 @@
 package trainig.string;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class MirrorWrite {
     
@@ -23,22 +24,27 @@ public class MirrorWrite {
     }
     
     private String mirrorArray(String x) {
-        Array arr[];
+        String z = "";
+        int b = z.length();
+        int arr[] = null;
+        int n;
         if (x == null) {
             arr = null;
+            z = Arrays.toString(arr);
                     
         } else if (x.isEmpty()) {
-            arr = [""];
+            n = arr[0];
+            z = z + b;
             
         } else {
             int a = x.length();
             while (a > 0) {
                 a = a - 1;
-                arr = Array.get(x, a);
-                Array.set(arr, a, a);
+                n = arr[a];
+                z = z + x.charAt(n);
             }
         }
-        return arr;
+        return z;
     }
     
     public String mirrorStringBuilder(String x) {
@@ -48,16 +54,13 @@ public class MirrorWrite {
             z = null;
             y = null;
         } else if (x.isBlank()) {
-            z.append("");
             
         } else {
             int a = x.length();
             while (a > 0) {
                 a = a - 1;
-                z = z.append(a);
             }
         }
-        y = y + z;
         return y;
     }
     
