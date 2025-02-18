@@ -1,8 +1,5 @@
 package trainig.string;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class MirrorWrite {
     
     public String mirror(String x) {
@@ -11,7 +8,7 @@ public class MirrorWrite {
             z = null;
             
         } else if (x.isBlank()) {
-            z = "";
+            z = x;
             
         } else {
             int a = x.length();
@@ -25,23 +22,19 @@ public class MirrorWrite {
     
     private String mirrorArray(String x) {
         String z = "";
-        int b = z.length();
-        int arr[] = null;
-        int n;
         if (x == null) {
-            arr = null;
-            z = Arrays.toString(arr);
+            z = null;
                     
-        } else if (x.isEmpty()) {
-            n = arr[0];
-            z = z + b;
+        } else if (x.isBlank()) {
+            z = x;
             
         } else {
             int a = x.length();
             while (a > 0) {
                 a = a - 1;
-                n = arr[a];
-                z = z + x.charAt(n);
+                char last = x.charAt(a);
+                char[] mirrora = x.toCharArray(last);
+                z = new String(mirrora);
             }
         }
         return z;
@@ -50,10 +43,10 @@ public class MirrorWrite {
     public String mirrorStringBuilder(String x) {
         String y = "";
         StringBuilder z;
-        if (x == null) {
-            z = null;
-            y = null;
+        if (x == null || x.isBlank()) {
+            y = x;
         } else if (x.isBlank()) {
+            y = x;
             
         } else {
             int a = x.length();
