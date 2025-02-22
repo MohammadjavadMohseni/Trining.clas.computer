@@ -4,10 +4,7 @@ public class MirrorWrite {
     
     public String mirror(String x) {
         String z = "";
-        if (x == null) {
-            z = null;
-            
-        } else if (x.isBlank()) {
+        if (x == null || x.isBlank()) {
             z = x;
             
         } else {
@@ -22,19 +19,14 @@ public class MirrorWrite {
     
     private String mirrorArray(String x) {
         String z = "";
-        if (x == null) {
-            z = null;
-                    
-        } else if (x.isBlank()) {
+        if (x == null || x.isBlank()) {
             z = x;
             
         } else {
             int a = x.length();
             while (a > 0) {
                 a = a - 1;
-                char last = x.charAt(a);
-                char[] mirrora = x.toCharArray(last);
-                z = new String(mirrora);
+                
             }
         }
         return z;
@@ -42,17 +34,17 @@ public class MirrorWrite {
     
     public String mirrorStringBuilder(String x) {
         String y = "";
-        StringBuilder z;
+        StringBuilder z = new StringBuilder();
         if (x == null || x.isBlank()) {
-            y = x;
-        } else if (x.isBlank()) {
             y = x;
             
         } else {
             int a = x.length();
             while (a > 0) {
                 a = a - 1;
+                z.append(x.charAt(a));
             }
+            y = y + z;
         }
         return y;
     }
