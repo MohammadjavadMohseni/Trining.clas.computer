@@ -25,10 +25,10 @@ public class MirrorWrite {
         } else {
             int a = x.length();
             char[] l = new char[a];
-            String y = new String(l);
             for (int b = l.length; b > 0; b--) {
-                char[] m = y.toCharArray();
-                z = new String(m);
+                int i = a - b;
+                l[i] = x.charAt(b - 1);
+                z = new String(l);
             }
         }
         return z;

@@ -4,26 +4,18 @@ public class Factorial {
     
     public int factorial(int n) {
         int b = 1;
-        if (n == 0) {
-            b = 0;
-            
-        } else if (n == 1) {
+        if (n == 0 || n == 1) {
             b = 1;
             
         } else {
             int a = 1;
-            while (a < n) {
-                int c = 1 * b;
-                ++a;
-                b = c * (a);
+            while (a <= n) {
+                b = b * a++;
             }
         }
         return b;
     }
     
-    private Factorial(String z) {
-        z = "";
-    }
     
     public static void main(String[] args) {
         Factorial f = new Factorial();
