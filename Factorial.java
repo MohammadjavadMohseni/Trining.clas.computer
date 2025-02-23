@@ -4,12 +4,9 @@ public class Factorial {
     
     public int factorial(int n) {
         int b = 1;
-        if (n == 0 || n == 1) {
-            b = 1;
-            
-        } else {
-            int a = 1;
-            while (a <= n) {
+        if (n > 1) {
+            int a = 2;
+            while (a < n + 1) {
                 b = b * a++;
             }
         }

@@ -18,18 +18,16 @@ public class MirrorWrite {
     }
     
     private String mirrorArray(String x) {
-        String z = "";
+        String z;
         if (x == null || x.isBlank()) {
             z = x;
             
         } else {
-            int a = x.length();
-            char[] l = new char[a];
+            char[] l = new char[x.length()];
             for (int b = l.length; b > 0; b--) {
-                int i = a - b;
-                l[i] = x.charAt(b - 1);
-                z = new String(l);
+                l[x.length() - b] = x.charAt(b - 1);
             }
+            z = new String(l);
         }
         return z;
     }
