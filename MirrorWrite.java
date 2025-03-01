@@ -17,12 +17,11 @@ public class MirrorWrite {
         return z;
     }
     
-    public int testMirror(String x, int a) {
+    public void testMirror(String x, int a) {
         while (a > 0) {
             a = a - 1;
             mirror(x);
         }
-        return a;
     }
     
     public String mirrorArray(String x) {
@@ -66,7 +65,6 @@ public class MirrorWrite {
     }
     
     public int testMirrorStringBuilder(String x, int a) {
-        StringBuilder z = new StringBuilder();
         while (a > 0) {
             a = a - 1;
             mirrorStringBuilder(x);
@@ -90,7 +88,8 @@ public class MirrorWrite {
     public static void main(String[] args) {
         MirrorWrite m = new MirrorWrite();
         long l1 = System.currentTimeMillis();
-        System.err.println(m.testMirror("xsdfefrrbfv", 100) + " a : " + (System.currentTimeMillis() - l1) + "ms");
+        m.testMirror("xsdfefrrbfv", 100);
+        System.err.println(" a : " + (System.currentTimeMillis() - l1) + "ms");
         System.err.println("_______________");
         System.err.println(" ==> " + m.mirror(m.number(10)) 
                 + System.lineSeparator() + "    a : " + (System.currentTimeMillis() - l1) + "ms");
