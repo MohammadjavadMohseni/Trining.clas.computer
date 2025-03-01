@@ -17,13 +17,12 @@ public class MirrorWrite {
         return z;
     }
     
-    public String testMirror(String x, int a) {
-        StringBuilder z = new StringBuilder();
+    public int testMirror(String x, int a) {
         while (a > 0) {
             a = a - 1;
-            z.append(mirror(x));
+            mirror(x);
         }
-        return z.toString();
+        return a;
     }
     
     public String mirrorArray(String x) {
@@ -41,13 +40,12 @@ public class MirrorWrite {
         return z;
     }
     
-    public String testMirrorArray(String x, int a) {
-        StringBuilder z = new StringBuilder();
+    public int testMirrorArray(String x, int a) {
         while (a > 0) {
             a = a - 1;
-            z.append(mirrorArray(x));
+            mirrorArray(x);
         }
-        return z.toString();
+        return a;
     }
     
     public String mirrorStringBuilder(String x) {
@@ -67,13 +65,13 @@ public class MirrorWrite {
         return y;
     }
     
-    public String testMirrorStringBuilder(String x, int a) {
+    public int testMirrorStringBuilder(String x, int a) {
         StringBuilder z = new StringBuilder();
         while (a > 0) {
             a = a - 1;
-            z.append(mirrorStringBuilder(x));
+            mirrorStringBuilder(x);
         }
-        return z.toString();
+        return a;
     }
     
     
@@ -92,8 +90,7 @@ public class MirrorWrite {
     public static void main(String[] args) {
         MirrorWrite m = new MirrorWrite();
         long l1 = System.currentTimeMillis();
-        System.err.println(" ==> " + m.testMirror("xsdfefrrbfv", 100) 
-                + System.lineSeparator() + " a : " + (System.currentTimeMillis() - l1) + "ms");
+        System.err.println(m.testMirror("xsdfefrrbfv", 100) + " a : " + (System.currentTimeMillis() - l1) + "ms");
         System.err.println("_______________");
         System.err.println(" ==> " + m.mirror(m.number(10)) 
                 + System.lineSeparator() + "    a : " + (System.currentTimeMillis() - l1) + "ms");
