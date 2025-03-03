@@ -1,5 +1,6 @@
 package trainig.shape;
 
+import trainig.shape.twodshape.Polygon;
 import trainig.shape.twodshape.quadrilateral.Rectangle;
 import trainig.shape.twodshape.quadrilateral.Square;
 import trainig.shape.twodshape.Triangle;
@@ -95,5 +96,8 @@ public class Geometry {
         System.err.println("==> validate of" + ql.getTitle() + " 6 is : " + ql.validate());
         sh = ql;
         System.err.println("==> " + sh.area());
+        
+        Polygon p = new Polygon("Polygon");
+        p.setPi(new Point(0, 100));
     }
 }

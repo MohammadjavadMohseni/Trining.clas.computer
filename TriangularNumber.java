@@ -3,10 +3,10 @@ package trainig.summation;
 public class TriangularNumber {
     
     /**
-     * socnn = Sum of consecutive natural numbers 
-     * @param a = int a ==> a <=> 0
-     * @param b = int b ==> b <=> 0
-     * @return int socnn = Sum Of Smallest Number And greatest Number
+     * socnn : Sum of consecutive natural numbers 
+     * @param a
+     * @param b
+     * @return Sum Of Smallest Number And greatest Number
      */
     public int socnn(int a, int b) {
         int socnn;
@@ -15,15 +15,15 @@ public class TriangularNumber {
             
         } else {
             socnn = ((b + a) * ((a - b) + 1)) / 2;
-        }
+        }  
         return socnn;
     }
     
     /**
-     * socnni = Sum of consecutive natural numbers iteration
-     * @param a = int a ==> a <=> 0
-     * @param b = int b ==> b <=> 0
-     * @return int socnni = Sum Of Smallest Number And greatest Number Withe Iteration
+     * socnni : Sum of consecutive natural numbers iteration
+     * @param a
+     * @param b
+     * @return Sum Of Smallest Number And greatest Number Withe Iteration
      */
     private int socnni(int a, int b) {
         int socnni = 0;

@@ -39,12 +39,11 @@ public class MirrorWrite {
         return z;
     }
     
-    public int testMirrorArray(String x, int a) {
+    public void testMirrorArray(String x, int a) {
         while (a > 0) {
             a = a - 1;
             mirrorArray(x);
         }
-        return a;
     }
     
     public String mirrorStringBuilder(String x) {
@@ -64,14 +63,12 @@ public class MirrorWrite {
         return y;
     }
     
-    public int testMirrorStringBuilder(String x, int a) {
+    public void testMirrorStringBuilder(String x, int a) {
         while (a > 0) {
             a = a - 1;
             mirrorStringBuilder(x);
         }
-        return a;
     }
-    
     
     public String number(int d) {
         String t;
@@ -91,30 +88,30 @@ public class MirrorWrite {
         m.testMirror("xsdfefrrbfv", 100);
         System.err.println(" a : " + (System.currentTimeMillis() - l1) + "ms");
         System.err.println("_______________");
-        System.err.println(" ==> " + m.mirror(m.number(10)) 
-                + System.lineSeparator() + "    a : " + (System.currentTimeMillis() - l1) + "ms");
+        m.mirror(m.number(10));
+        System.err.println(" a : " + (System.currentTimeMillis() - l1) + "ms");
         System.err.println("_______________");
         System.err.println(" ==> " + m.mirror("xsdfefrrbfv"));
         System.err.println(" ==> " + m.mirror("a"));
         System.err.println(" ==> " + m.mirror(""));
         System.err.println(" ==> " + m.mirror(null));
         long l2 = System.currentTimeMillis();
-        System.err.println(" ==> " + m.testMirrorStringBuilder("xsdfefrrbfv", 100) 
-                + System.lineSeparator() + "    a : " + (System.currentTimeMillis() - l2) + "ms");
+        m.testMirrorStringBuilder("xsdfefrrbfv", 100);
+        System.err.println(" a : " + (System.currentTimeMillis() - l2) + "ms");
         System.err.println("_______________");
-        System.err.println(" ==> " + m.mirrorStringBuilder(m.number(10)) 
-                + System.lineSeparator() + "    a : " + (System.currentTimeMillis() - l2) + "ms");
+        m.mirrorStringBuilder(m.number(10));
+        System.err.println(" a : " + (System.currentTimeMillis() - l2) + "ms");
         System.err.println("________________");
         System.err.println(" ==> " + m.mirrorStringBuilder("xsdfefrrbfv"));
         System.err.println(" ==> " + m.mirrorStringBuilder("a"));
         System.err.println(" ==> " + m.mirrorStringBuilder(""));
         System.err.println(" ==> " + m.mirrorStringBuilder(null));
         long l3 = System.currentTimeMillis();
-        System.err.println(" ==> " + m.testMirrorArray("xsdfefrrbfv", 100) 
-                + System.lineSeparator() + "    a : " + (System.currentTimeMillis() - l3) + "ms");
+        m.testMirrorArray("xsdfefrrbfv", 100);
+        System.err.println(" a : " + (System.currentTimeMillis() - l3) + "ms");
         System.err.println("____________");
-        System.err.println(" ==> " + m.mirrorArray(m.number(10)) 
-                + System.lineSeparator() + "    a : " + (System.currentTimeMillis() - l3) + "ms");
+        m.mirrorArray(m.number(10));
+        System.err.println(" a : " + (System.currentTimeMillis() - l3) + "ms");
         System.err.println("______________");
         System.err.println(" ==> " + m.mirrorArray("xsdfefrrbfv"));
         System.err.println(" ==> " + m.mirrorArray("a"));
