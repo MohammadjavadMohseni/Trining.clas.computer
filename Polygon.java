@@ -3,24 +3,17 @@ package trainig.shape.twodshape;
 import trainig.shape.Point;
 
 public class Polygon extends TwodShape {
-    public Point pi;
+    Point[] p;
+    int point;
 
     public Polygon(String name) {
         super("Polygon");
-        Point z;
-        
-        Point[] p = new Point[];
-        
     }
     
-    public Point getPi() {
-        return pi;
+    public Point[] get(Point z, int point) {
+        p[point] = z.getX(point);
+        return p;
     }
-    
-    public void setPi(Point pi) {
-        this.pi = pi;
-    }
-    
 
     @Override
     public double area() {
@@ -31,5 +24,6 @@ public class Polygon extends TwodShape {
     public boolean validate() {
         return true;
     }
+
     
 }

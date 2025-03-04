@@ -29,4 +29,8 @@ public class Point {
     public void setY(int y) {
         this.y = y;
     }
+
+    public Point getX(int point) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -40,6 +40,46 @@ public class TriangularNumber {
         return socnni;
     }
     
+    public int sumNumber(int a) {
+        int c = 0;
+        StringBuilder z = new StringBuilder();
+        z.append(a);
+        z.capacity();
+        char[] l = new char[z.length()];
+        for (int b = l.length; b > 0; b--) {
+            l[z.length() - b] = z.charAt(b - 1);
+        }
+        for (int b = l.length; b > 0; b--) {
+            int d = l[b - 1];
+            int e = d - 48;
+            c = c + e; 
+        }
+        return c;
+    }
+    
+    /**
+     * cc : conjectureCollatz
+     * @param n
+     * @return 1 : test true || another int test falls
+     */
+    
+    public int cc(int n) {
+        if (n > 1) {
+            while (n > 1) {
+                int a = n / 2;
+                int b = a * 2;
+                if (n == b) {
+                    n = n / 2;
+                } else {
+                    n = n * 3 + 1;
+                }
+            }
+        } else {
+            n = 0;
+        }
+        return n;
+    }
+    
     public static void main(String[] args) {
         TriangularNumber a = new TriangularNumber();
         System.err.println(" ==> socnn  a " + " is a : " + a.socnn(1, 10));
@@ -80,6 +120,35 @@ public class TriangularNumber {
         System.err.println("");
         System.err.println(" ==> socnn  m " + " is a : " + a.socnn(-10, 0));
         System.err.println(" ==> socnni  m " + " is a : " + a.socnni(-10, 0));
+        System.err.println("_________________________________________________");
+        System.err.println(" ==> sumNumber a" + " is a : " + a.sumNumber(123456789));
+        System.err.println("_________________________________________________________");
+        System.err.println(" ==> cc a " + " is a : " + a.cc(-1));
+        System.err.println(" ==> cc b " + " is a : " + a.cc(0));
+        System.err.println(" ==> cc c " + " is a : " + a.cc(1));
+        System.err.println(" ==> cc d " + " is a : " + a.cc(2));
+        System.err.println(" ==> cc e " + " is a : " + a.cc(3));
+        System.err.println(" ==> cc f " + " is a : " + a.cc(4));
+        System.err.println(" ==> cc g " + " is a : " + a.cc(5));
+        System.err.println(" ==> cc h " + " is a : " + a.cc(6));
+        System.err.println(" ==> cc i " + " is a : " + a.cc(7));
+        System.err.println(" ==> cc j " + " is a : " + a.cc(8));
+        System.err.println(" ==> cc k " + " is a : " + a.cc(9));
+        System.err.println(" ==> cc l " + " is a : " + a.cc(10));
+        System.err.println(" ==> cc m " + " is a : " + a.cc(11));
+        System.err.println(" ==> cc n " + " is a : " + a.cc(12));
+        System.err.println(" ==> cc o " + " is a : " + a.cc(13));
+        System.err.println(" ==> cc p " + " is a : " + a.cc(14));
+        System.err.println(" ==> cc q " + " is a : " + a.cc(15));
+        System.err.println(" ==> cc r " + " is a : " + a.cc(16));
+        System.err.println(" ==> cc s " + " is a : " + a.cc(17));
+        System.err.println(" ==> cc t " + " is a : " + a.cc(18));
+        System.err.println(" ==> cc u " + " is a : " + a.cc(19));
+        System.err.println(" ==> cc v " + " is a : " + a.cc(20));
+        System.err.println(" ==> cc w " + " is a : " + a.cc(21));
+        System.err.println(" ==> cc x " + " is a : " + a.cc(22));
+        System.err.println(" ==> cc y " + " is a : " + a.cc(23));
+        System.err.println(" ==> cc z " + " is a : " + a.cc(24));
     }
     
 }
