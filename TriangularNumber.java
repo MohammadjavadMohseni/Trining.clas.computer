@@ -40,30 +40,34 @@ public class TriangularNumber {
         return socnni;
     }
     
-    public int sumDigit(int a) {
+    public int sumDigit1(int a) {
         int c = 0;
         StringBuilder z = new StringBuilder();
         z.append(a);
-        char[] l = new char[z.length()];
-        for (int b = l.length; b > 0; b--) {
-            l[z.length() - b] = z.charAt(b - 1);
-        }
-        for (int b = l.length - 1; b > 0; b--) {
-            c = c + Integer.valueOf(l[b]);
+        for (int b = z.length(); b > 0; b--) {
+            c = c + Integer.parseInt("" + z.charAt(b - 1));
         }
         return c;
     }
     
-    public int sumDigit1(int a) {
+    public int sumDigit2(int a) {
         int d = 0;
         StringBuilder z = new StringBuilder();
         z.append(a);
-        String y = new String(z);
         for (int b = z.length(); b > 0; b--) {
-            int c = z.;
-            d = d + c;
+            d += (z.charAt(b - 1) - 48);
         }
         return d;
+    }
+    
+    public int sumDigit3(int a) {
+        int c = 0;
+        while (a > 0) {
+            int b = a % 10;
+            c += b;
+            a = a / 10;
+        }
+        return c;
     }
     
     /**
@@ -130,8 +134,9 @@ public class TriangularNumber {
         System.err.println(" ==> socnn  m " + " is a : " + a.socnn(-10, 0));
         System.err.println(" ==> socnni  m " + " is a : " + a.socnni(-10, 0));
         System.err.println("_________________________________________________");
-        System.err.println(" ==> sumNumber a" + " is a : " + a.sumDigit(123456789));
         System.err.println(" ==> sumNumber a" + " is a : " + a.sumDigit1(123456789));
+        System.err.println(" ==> sumNumber a" + " is a : " + a.sumDigit2(123456789));
+        System.err.println(" ==> sumNumber a" + " is a : " + a.sumDigit3(123456789));
         System.err.println("_________________________________________________________");
         System.err.println(" ==> cc a " + " is a : " + a.cc(-1));
         System.err.println(" ==> cc b " + " is a : " + a.cc(0));
