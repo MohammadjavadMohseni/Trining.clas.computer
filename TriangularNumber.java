@@ -40,21 +40,30 @@ public class TriangularNumber {
         return socnni;
     }
     
-    public int sumNumber(int a) {
+    public int sumDigit(int a) {
         int c = 0;
         StringBuilder z = new StringBuilder();
         z.append(a);
-        z.capacity();
         char[] l = new char[z.length()];
         for (int b = l.length; b > 0; b--) {
             l[z.length() - b] = z.charAt(b - 1);
         }
-        for (int b = l.length; b > 0; b--) {
-            int d = l[b - 1];
-            int e = d - 48;
-            c = c + e; 
+        for (int b = l.length - 1; b > 0; b--) {
+            c = c + Integer.valueOf(l[b]);
         }
         return c;
+    }
+    
+    public int sumDigit1(int a) {
+        int d = 0;
+        StringBuilder z = new StringBuilder();
+        z.append(a);
+        String y = new String(z);
+        for (int b = z.length(); b > 0; b--) {
+            int c = z.;
+            d = d + c;
+        }
+        return d;
     }
     
     /**
@@ -121,7 +130,8 @@ public class TriangularNumber {
         System.err.println(" ==> socnn  m " + " is a : " + a.socnn(-10, 0));
         System.err.println(" ==> socnni  m " + " is a : " + a.socnni(-10, 0));
         System.err.println("_________________________________________________");
-        System.err.println(" ==> sumNumber a" + " is a : " + a.sumNumber(123456789));
+        System.err.println(" ==> sumNumber a" + " is a : " + a.sumDigit(123456789));
+        System.err.println(" ==> sumNumber a" + " is a : " + a.sumDigit1(123456789));
         System.err.println("_________________________________________________________");
         System.err.println(" ==> cc a " + " is a : " + a.cc(-1));
         System.err.println(" ==> cc b " + " is a : " + a.cc(0));
