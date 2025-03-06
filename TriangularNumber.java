@@ -1,5 +1,7 @@
 package trainig.summation;
 
+import java.io.IO;
+
 public class TriangularNumber {
     
     /**
@@ -76,21 +78,45 @@ public class TriangularNumber {
      * @return 1 : test true || another int test falls
      */
     
-    public int cc(int n) {
+    public StringBuilder cc1(int n) {
+        StringBuilder z = new StringBuilder();
+        z.append(n);
         if (n > 1) {
             while (n > 1) {
                 int a = n / 2;
                 int b = a * 2;
                 if (n == b) {
                     n = n / 2;
+                    z.append(" > ").append(n);
                 } else {
                     n = n * 3 + 1;
+                    z.append(" > ").append(n);
                 }
             }
         } else {
-            n = 0;
+            z.append(" > null");
         }
-        return n;
+        return z;
+    }
+    
+    public StringBuilder cc2(int n) {
+        StringBuilder z = new StringBuilder();
+        z.append(n);
+        if (n > 1) {
+            while (n > 1) {
+                if (n % 2 == 0) {
+                    n = n / 2;
+                    z.append(" > ").append(n);
+                    
+                } else {
+                    n = n * 3 + 1;
+                    z.append(" > ").append(n);
+                }
+            }
+        } else {
+            z.append(" > null");
+        }
+        return z;
     }
     
     public static void main(String[] args) {
@@ -138,32 +164,41 @@ public class TriangularNumber {
         System.err.println(" ==> sumNumber a" + " is a : " + a.sumDigit2(123456789));
         System.err.println(" ==> sumNumber a" + " is a : " + a.sumDigit3(123456789));
         System.err.println("_________________________________________________________");
-        System.err.println(" ==> cc a " + " is a : " + a.cc(-1));
-        System.err.println(" ==> cc b " + " is a : " + a.cc(0));
-        System.err.println(" ==> cc c " + " is a : " + a.cc(1));
-        System.err.println(" ==> cc d " + " is a : " + a.cc(2));
-        System.err.println(" ==> cc e " + " is a : " + a.cc(3));
-        System.err.println(" ==> cc f " + " is a : " + a.cc(4));
-        System.err.println(" ==> cc g " + " is a : " + a.cc(5));
-        System.err.println(" ==> cc h " + " is a : " + a.cc(6));
-        System.err.println(" ==> cc i " + " is a : " + a.cc(7));
-        System.err.println(" ==> cc j " + " is a : " + a.cc(8));
-        System.err.println(" ==> cc k " + " is a : " + a.cc(9));
-        System.err.println(" ==> cc l " + " is a : " + a.cc(10));
-        System.err.println(" ==> cc m " + " is a : " + a.cc(11));
-        System.err.println(" ==> cc n " + " is a : " + a.cc(12));
-        System.err.println(" ==> cc o " + " is a : " + a.cc(13));
-        System.err.println(" ==> cc p " + " is a : " + a.cc(14));
-        System.err.println(" ==> cc q " + " is a : " + a.cc(15));
-        System.err.println(" ==> cc r " + " is a : " + a.cc(16));
-        System.err.println(" ==> cc s " + " is a : " + a.cc(17));
-        System.err.println(" ==> cc t " + " is a : " + a.cc(18));
-        System.err.println(" ==> cc u " + " is a : " + a.cc(19));
-        System.err.println(" ==> cc v " + " is a : " + a.cc(20));
-        System.err.println(" ==> cc w " + " is a : " + a.cc(21));
-        System.err.println(" ==> cc x " + " is a : " + a.cc(22));
-        System.err.println(" ==> cc y " + " is a : " + a.cc(23));
-        System.err.println(" ==> cc z " + " is a : " + a.cc(24));
+        System.err.println(" ==> cc a " + " is a : " + a.cc1(-1));
+        System.err.println(" ==> cc b " + " is a : " + a.cc1(0));
+        System.err.println(" ==> cc c " + " is a : " + a.cc1(1));
+        System.err.println(" ==> cc d " + " is a : " + a.cc1(2));
+        System.err.println(" ==> cc e " + " is a : " + a.cc1(3));
+        System.err.println(" ==> cc f " + " is a : " + a.cc1(4));
+        System.err.println(" ==> cc g " + " is a : " + a.cc1(5));
+        System.err.println(" ==> cc h " + " is a : " + a.cc1(6));
+        System.err.println(" ==> cc i " + " is a : " + a.cc1(7));
+        System.err.println(" ==> cc j " + " is a : " + a.cc1(8));
+        System.err.println(" ==> cc k " + " is a : " + a.cc1(9));
+        System.err.println(" ==> cc l " + " is a : " + a.cc1(10));
+        System.err.println(" ==> cc m " + " is a : " + a.cc1(11));
+        System.err.println(" ==> cc n " + " is a : " + a.cc1(12));
+        System.err.println(" ==> cc o " + " is a : " + a.cc1(13));
+        System.err.println(" ==> cc p " + " is a : " + a.cc1(14));
+        System.err.println(" ==> cc q " + " is a : " + a.cc1(15));
+        System.err.println(" ==> cc r " + " is a : " + a.cc1(16));
+        System.err.println(" ==> cc s " + " is a : " + a.cc1(17));
+        System.err.println(" ==> cc t " + " is a : " + a.cc1(18));
+        System.err.println(" ==> cc u " + " is a : " + a.cc1(19));
+        System.err.println(" ==> cc v " + " is a : " + a.cc1(20));
+        System.err.println(" ==> cc w " + " is a : " + a.cc1(21));
+        System.err.println(" ==> cc x " + " is a : " + a.cc1(22));
+        System.err.println(" ==> cc y " + " is a : " + a.cc1(23));
+        System.err.println(" ==> cc z " + " is a : " + a.cc1(24));
+        System.err.println("______________________________________");
+        System.err.println(" ==> cc a " + " is a : " + a.cc2(-1));
+        System.err.println(" ==> cc b " + " is a : " + a.cc1(0));
+        System.err.println(" ==> cc c " + " is a : " + a.cc1(1));
+        System.err.println(" ==> cc d " + " is a : " + a.cc1(2));
+        System.err.println(" ==> cc e " + " is a : " + a.cc1(3));
+        System.err.println(" ==> cc f " + " is a : " + a.cc1(4));
+        System.err.println(" ==> cc g " + " is a : " + a.cc1(5));
+
     }
     
 }
