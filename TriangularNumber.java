@@ -1,11 +1,10 @@
 package trainig.summation;
 
-import java.io.IO;
-
 public class TriangularNumber {
-    
+
     /**
-     * socnn : Sum of consecutive natural numbers 
+     * socnn : Sum of consecutive natural numbers
+     *
      * @param a
      * @param b
      * @return Sum Of Smallest Number And greatest Number
@@ -14,15 +13,16 @@ public class TriangularNumber {
         int socnn;
         if (a < b) {
             socnn = ((a + b) * ((b - a) + 1)) / 2;
-            
+
         } else {
             socnn = ((b + a) * ((a - b) + 1)) / 2;
-        }  
+        }
         return socnn;
     }
-    
+
     /**
      * socnni : Sum of consecutive natural numbers iteration
+     *
      * @param a
      * @param b
      * @return Sum Of Smallest Number And greatest Number Withe Iteration
@@ -33,7 +33,7 @@ public class TriangularNumber {
             while (a <= b) {
                 socnni = socnni + a++;
             }
-            
+
         } else {
             while (b <= a) {
                 socnni = socnni + b++;
@@ -41,7 +41,7 @@ public class TriangularNumber {
         }
         return socnni;
     }
-    
+
     public int sumDigit1(int a) {
         int c = 0;
         StringBuilder z = new StringBuilder();
@@ -51,7 +51,7 @@ public class TriangularNumber {
         }
         return c;
     }
-    
+
     public int sumDigit2(int a) {
         int d = 0;
         StringBuilder z = new StringBuilder();
@@ -61,7 +61,7 @@ public class TriangularNumber {
         }
         return d;
     }
-    
+
     public int sumDigit3(int a) {
         int c = 0;
         while (a > 0) {
@@ -71,13 +71,13 @@ public class TriangularNumber {
         }
         return c;
     }
-    
+
     /**
      * cc : conjectureCollatz
+     *
      * @param n
      * @return 1 : test true || another int test falls
      */
-    
     public StringBuilder cc1(int n) {
         StringBuilder z = new StringBuilder();
         z.append(n);
@@ -98,27 +98,31 @@ public class TriangularNumber {
         }
         return z;
     }
-    
-    public StringBuilder cc2(int n) {
+
+    public int cc2(int n) {
         StringBuilder z = new StringBuilder();
         z.append(n);
+        System.err.println("" + n);
         if (n > 1) {
             while (n > 1) {
                 if (n % 2 == 0) {
                     n = n / 2;
                     z.append(" > ").append(n);
-                    
+                    System.out.println(" > " + n);
+
                 } else {
                     n = n * 3 + 1;
                     z.append(" > ").append(n);
+                    System.out.println(" > " + n);
                 }
             }
         } else {
             z.append(" > null");
+            System.out.println(" > null");
         }
-        return z;
+        return n;
     }
-    
+
     public static void main(String[] args) {
         TriangularNumber a = new TriangularNumber();
         System.err.println(" ==> socnn  a " + " is a : " + a.socnn(1, 10));
@@ -127,8 +131,8 @@ public class TriangularNumber {
         System.err.println(" ==> socnn  b " + " is a : " + a.socnn(10, 1));
         System.err.println(" ==> socnni  b " + " is a : " + a.socnni(10, 1));
         System.err.println("");
-        System.err.println(" ==> socnn  c "  + " is a : " + a.socnn(0, 10));
-        System.err.println(" ==> socnni  c "  + " is a : " + a.socnni(0, 10));
+        System.err.println(" ==> socnn  c " + " is a : " + a.socnn(0, 10));
+        System.err.println(" ==> socnni  c " + " is a : " + a.socnni(0, 10));
         System.err.println("");
         System.err.println(" ==> socnn  d " + " is a : " + a.socnn(10, 0));
         System.err.println(" ==> socnni  d " + " is a : " + a.socnni(10, 0));
@@ -192,13 +196,13 @@ public class TriangularNumber {
         System.err.println(" ==> cc z " + " is a : " + a.cc1(24));
         System.err.println("______________________________________");
         System.err.println(" ==> cc a " + " is a : " + a.cc2(-1));
-        System.err.println(" ==> cc b " + " is a : " + a.cc1(0));
-        System.err.println(" ==> cc c " + " is a : " + a.cc1(1));
-        System.err.println(" ==> cc d " + " is a : " + a.cc1(2));
-        System.err.println(" ==> cc e " + " is a : " + a.cc1(3));
-        System.err.println(" ==> cc f " + " is a : " + a.cc1(4));
-        System.err.println(" ==> cc g " + " is a : " + a.cc1(5));
+        System.err.println(" ==> cc b " + " is a : " + a.cc2(0));
+        System.err.println(" ==> cc c " + " is a : " + a.cc2(1));
+        System.err.println(" ==> cc d " + " is a : " + a.cc2(2));
+        System.err.println(" ==> cc e " + " is a : " + a.cc2(3));
+        System.err.println(" ==> cc f " + " is a : " + a.cc2(4));
+        System.err.println(" ==> cc g " + " is a : " + a.cc2(5));
 
     }
-    
+
 }

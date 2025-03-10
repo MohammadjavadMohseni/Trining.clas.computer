@@ -11,7 +11,6 @@ public class Polygon extends TwodShape {
     }
     
     public Point[] get(Point z, int point) {
-        p[point] = z.getX(point);
         return p;
     }
 
