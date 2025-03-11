@@ -82,6 +82,127 @@ public class MirrorWrite {
         return t;
     }
     
+    public StringBuilder nameNumber(int n) {
+        StringBuilder z = new StringBuilder();
+        StringBuilder y = new StringBuilder();
+        z.append(n);
+        int a = z.length();
+        
+        while (a > 0) {
+            double b = Math.pow(10, a - 1);
+            int c = (int) (n / b);
+            
+            if (n == 0) {
+                y.append("صفر");
+            
+        } else if (n > 0) {
+            
+            if (a % 3 == 0) {
+                int d = c % 10;
+                switch (d) {
+                    
+                    case 0:y.append("");
+                    break;
+                    case 1:y.append("صد ");
+                    break;
+                    case 2:y.append("دویست ");
+                    break;
+                    case 3:y.append("سیصد ");
+                    break;
+                    case 4:y.append("چهارصد ");
+                    break;
+                    case 5:y.append("پانصد ");
+                    break;
+                    case 6:y.append("شیشصد ");
+                    break;
+                    case 7:y.append("هفتصد ");
+                    break;
+                    case 8:y.append("هشتصد ");
+                    break;
+                    case 9:y.append("نهصد ");
+                    break;
+                }
+                
+            } else if ((a - 2) == 3 * ((a - 2) / 3)) {
+                int d = c % 10;
+                switch (d) {
+                    
+                    case 0:y.append("");
+                    break;
+                    case 1:y.append("ده ");
+                    break;
+                    case 2:y.append("بیست ");
+                    break;
+                    case 3:y.append("سی ");
+                    break;
+                    case 4:y.append("چهل ");
+                    break;
+                    case 5:y.append("پنجاه ");
+                    break;
+                    case 6:y.append("شصت ");
+                    break;
+                    case 7:y.append("هفتاد ");
+                    break;
+                    case 8:y.append("هشتاد ");
+                    break;
+                    case 9:y.append("نود ");
+                    break;
+                }
+                
+            } else {
+                int d = c % 10;
+                switch (d) {
+                    
+                    case 0:y.append("");
+                    break;
+                    case 1:y.append("یک ");
+                    break;
+                    case 2:y.append("دو ");
+                    break;
+                    case 3:y.append("سه ");
+                    break;
+                    case 4:y.append("چهار ");
+                    break;
+                    case 5:y.append("پنج ");
+                    break;
+                    case 6:y.append("شیش ");
+                    break;
+                    case 7:y.append("هفت ");
+                    break;
+                    case 8:y.append("هشت ");
+                    break;
+                    case 9:y.append("نه ");
+                    break;
+                }
+                
+                if (d >= 0) {
+                    
+                    switch (a) {
+                    
+                    case 4:y.append("هزار ");
+                    break;
+                    case 7:y.append("میلیون ");
+                    break;
+                    case 10:y.append("میلیارد ");
+                    break;
+                    default:y.append("");
+                }
+
+                }
+            }
+            
+        } else {
+            
+            y.append("منفی ");
+            n = -1 * n;
+        }
+            
+            a--;
+        }
+            
+        return y;
+    }
+    
     public static void main(String[] args) {
         MirrorWrite m = new MirrorWrite();
         long l1 = System.currentTimeMillis();
@@ -117,5 +238,12 @@ public class MirrorWrite {
         System.err.println(" ==> " + m.mirrorArray("a"));
         System.err.println(" ==> " + m.mirrorArray(""));
         System.err.println(" ==> " + m.mirrorArray(null));
+        System.err.println("_____________________________");
+        System.err.println(" ==> " + m.nameNumber(123456789));
+        System.err.println(" ==> " + m.nameNumber(100000000));
+        System.err.println(" ==> " + m.nameNumber(100000));
+        System.err.println(" ==> " + m.nameNumber(1000000000));
+        System.err.println(" ==> " + m.nameNumber(0));
+        System.err.println(" ==> " + m.nameNumber(-123456789));
     }
 }
