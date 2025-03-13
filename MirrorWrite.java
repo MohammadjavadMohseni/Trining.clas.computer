@@ -1,4 +1,4 @@
-package training.string;
+package trainig.string;
 
 public class MirrorWrite {
 
@@ -87,11 +87,12 @@ public class MirrorWrite {
         StringBuilder y = new StringBuilder();
         z.append(n);
         int a = z.length();
+        int g = a - 1;
         
         if (n < 0) {
             y.append("منفی ");
-            n = -1 * n;
-            
+            n = -n;
+            a = a - 1;
         }
         if (n == 0) {
             y.append("صفر ");
@@ -100,9 +101,15 @@ public class MirrorWrite {
         while (a > 0) {
             double b = Math.pow(10, a - 1);
             int c =  (int) (n / b);
+            int d = c % 10;
+            int e = c % 1000;
+            if (g >= a) {
+                if (d != 0) {
+                y.append("و ");
+            }
+            }
             
             if (a % 3 == 0) {
-                int d = c % 10;
                 switch (d) {
                     
                     case 0 -> y.append("");
@@ -118,7 +125,6 @@ public class MirrorWrite {
                 }
                 
             } else if ((a - 2) == 3 * ((a - 2) / 3)) {
-                int d = c % 10;
                 switch (d) {
                     
                     case 0 -> y.append("");
@@ -150,7 +156,6 @@ public class MirrorWrite {
                 }
                 
             } else {
-                int d = c % 10;
                 switch (d) {
                     
                     case 0 -> y.append("");
@@ -165,8 +170,11 @@ public class MirrorWrite {
                     case 9 -> y.append("نه ");
                 }
                 
-                if (d >= 0) {
-                    
+                if (e != 0) {
+                    /*if (e - d == e) {
+                        int f = y.length();
+                        y.delete(f - 3, f - 1);
+                    }*/
                     switch (a) {
                     
                     case 4 -> y.append("هزار ");
@@ -182,7 +190,7 @@ public class MirrorWrite {
         } 
         return y;
         }
-    }
+
     
     public static void main(String[] args) {
         MirrorWrite s = new MirrorWrite();
@@ -220,11 +228,14 @@ public class MirrorWrite {
         System.err.println(" ==> " + s.mirrorArray(""));
         System.err.println(" ==> " + s.mirrorArray(null));
         System.err.println("_____________________________");
-        System.err.println(" ==> " + s.nameNumber(123456789L));
-        System.err.println(" ==> " + s.nameNumber(100000000L));
-        System.err.println(" ==> " + s.nameNumber(100000L));
-        System.err.println(" ==> " + s.nameNumber(100000000000L));
+        System.err.println(" ==> " + s.nameNumber(123_456_789L));
+        System.err.println(" ==> " + s.nameNumber(100_000_000L));
+        System.err.println(" ==> " + s.nameNumber(100_000L));
+        System.err.println(" ==> " + s.nameNumber(100_000_000_000L));
         System.err.println(" ==> " + s.nameNumber(0L));
-        System.err.println(" ==> " + s.nameNumber(-123456789L));
-
+        System.err.println(" ==> " + s.nameNumber(-123_456_789L));
+        System.err.println(" ==> " + s.nameNumber(111_111_111_111_111l));
+        System.err.println(" ==> " + s.nameNumber(10023l));
     }
+    
+}
