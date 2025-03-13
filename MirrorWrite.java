@@ -93,6 +93,7 @@ public class MirrorWrite {
             y.append("منفی ");
             n = -n;
             a = a - 1;
+            g = g - 1;
         }
         if (n == 0) {
             y.append("صفر ");
