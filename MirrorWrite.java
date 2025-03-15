@@ -103,6 +103,7 @@ public class MirrorWrite {
             double b = Math.pow(10, a - 1);
             int c =  (int) (n / b);
             int d = c % 10;
+            int f = c % 100;
             int e = c % 1000;
             if (g >= a) {
                 if (d != 0) {
@@ -130,10 +131,10 @@ public class MirrorWrite {
                     
                     case 0 -> y.append("");
                     case 1 -> {
-                        b = Math.pow(10, a - 1);
+                        b = b / 10;
                         c = (int) (n / b);
-                        d = c % 100;
-                        switch (d) {
+                        f = c % 100;
+                        switch (f) {
                             case 10 -> y.append("ده ");
                             case 11 -> y.append("یازده ");
                             case 12 -> y.append("دوازده ");
@@ -145,6 +146,7 @@ public class MirrorWrite {
                             case 18 -> y.append("هجده ");
                             case 19 -> y.append("نوزده ");
                         }
+                        a = a - 1;
                     }
                     case 2 -> y.append("بیست ");
                     case 3 -> y.append("سی ");
@@ -157,40 +159,37 @@ public class MirrorWrite {
                 }
                 
             } else {
+                    
                 switch (d) {
                     
-                    case 0 -> y.append("");
-                    case 1 -> y.append("یک ");
-                    case 2 -> y.append("دو ");
-                    case 3 -> y.append("سه ");
-                    case 4 -> y.append("چهار ");
-                    case 5 -> y.append("پنج ");
-                    case 6 -> y.append("شیش ");
-                    case 7 -> y.append("هفت ");
-                    case 8 -> y.append("هشت ");
-                    case 9 -> y.append("نه ");
+                case 0 -> y.append("");
+                case 1 -> y.append("یک ");
+                case 2 -> y.append("دو ");
+                case 3 -> y.append("سه ");
+                case 4 -> y.append("چهار ");
+                case 5 -> y.append("پنج ");
+                case 6 -> y.append("شیش ");
+                case 7 -> y.append("هفت ");
+                case 8 -> y.append("هشت ");
+                case 9 -> y.append("نه ");
                 }
+            }
+            
+            if (e != 0) {
                 
-                if (e != 0) {
-                    /*if (e - d == e) {
-                        int f = y.length();
-                        y.delete(f - 3, f - 1);
-                    }*/
-                    switch (a) {
-                    
+                switch (a) {
                     case 4 -> y.append("هزار ");
                     case 7 -> y.append("میلیون ");
                     case 10 -> y.append("میلیارد ");
                     default -> y.append("");
                 }
-
             }
             
-        }
             a--;
-        } 
-        return y;
         }
+        
+        return y;
+    }
 
     
     public static void main(String[] args) {
@@ -237,6 +236,5 @@ public class MirrorWrite {
         System.err.println(" ==> " + s.nameNumber(-123_456_789L));
         System.err.println(" ==> " + s.nameNumber(111_111_111_111_111l));
         System.err.println(" ==> " + s.nameNumber(10023l));
-    }
-    
+    }   
 }
