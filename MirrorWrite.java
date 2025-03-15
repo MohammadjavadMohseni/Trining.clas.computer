@@ -82,6 +82,17 @@ public class MirrorWrite {
         return t;
     }
     
+    public StringBuilder number1(long n) {
+        StringBuilder z = new StringBuilder();
+        long a =  9_998_988_800L;
+        while (a <= n) {
+            z.append(nameNumber(a)).append(" <== ");
+            z.append(System.lineSeparator());
+            a++;
+        }
+        return z;
+    }
+    
     public StringBuilder nameNumber(long n) {
         StringBuilder z = new StringBuilder();
         StringBuilder y = new StringBuilder();
@@ -234,7 +245,9 @@ public class MirrorWrite {
         System.err.println(" ==> " + s.nameNumber(100_000_000_000L));
         System.err.println(" ==> " + s.nameNumber(0L));
         System.err.println(" ==> " + s.nameNumber(-123_456_789L));
-        System.err.println(" ==> " + s.nameNumber(111_111_111_111_111l));
-        System.err.println(" ==> " + s.nameNumber(10023l));
+        System.err.println(" ==> " + s.nameNumber(111_111_111_111_111L));
+        System.err.println(" ==> " + s.nameNumber(10023L));
+        System.err.println("____________________________________________");
+        System.err.println("" + s.number1(10_000_000_000L));
     }   
 }
