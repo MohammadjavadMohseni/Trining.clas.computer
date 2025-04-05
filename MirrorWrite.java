@@ -84,7 +84,7 @@ public class MirrorWrite {
     
     public StringBuilder number1(long n) {
         StringBuilder z = new StringBuilder();
-        long a =  9_998_988_800L;
+        long a =  2_147_483_640L;
         while (a <= n) {
             z.append(nameNumber(a)).append(" <== ");
             z.append(System.lineSeparator());
@@ -112,10 +112,10 @@ public class MirrorWrite {
             
         while (a > 0) {
             double b = Math.pow(10, a - 1);
-            int c =  (int) (n / b);
-            int d = c % 10;
-            int f = c % 100;
-            int e = c % 1000;
+            long c =  (long) (n / b);
+            int d = (int) (c % 10);
+            int f = (int) (c % 100);
+            int e = (int) (c % 1000);
             if (g >= a) {
                 if (d != 0) {
                 y.append("و ");
@@ -143,8 +143,8 @@ public class MirrorWrite {
                     case 0 -> y.append("");
                     case 1 -> {
                         b = b / 10;
-                        c = (int) (n / b);
-                        f = c % 100;
+                        c = (long) (n / b);
+                        f = (int) (c % 100);
                         switch (f) {
                             case 10 -> y.append("ده ");
                             case 11 -> y.append("یازده ");
@@ -192,6 +192,37 @@ public class MirrorWrite {
                     case 4 -> y.append("هزار ");
                     case 7 -> y.append("میلیون ");
                     case 10 -> y.append("میلیارد ");
+                    case 13 -> y.append(" بیلیون ");
+                    case 16 -> y.append(" بیلیارد ");
+                    case 19 -> y.append(" تریلیون ");
+                    case 22 -> y.append("  تریلیارد");
+                    case 25 -> y.append("  کوآدریلیون");
+                    case 28 -> y.append(" کادریلیارد ");
+                    case 31 -> y.append("  کوینتیلیون");
+                    case 34 -> y.append(" کوانتیلیارد ");
+                    case 37 -> y.append(" سکستیلیون ");
+                    case 40 -> y.append(" سکستیلیارد ");
+                    case 43 -> y.append("  سپتیلیون");
+                    case 46 -> y.append(" سپتیلیارد ");
+                    case 49 -> y.append(" اکتیلیون ");
+                    case 52 -> y.append(" اکتیلیارد ");
+                    case 55 -> y.append(" نانیلیون ");
+                    case 58 -> y.append(" نانیلیارد ");
+                    case 61 -> y.append("  دسیلیون");
+                    case 64 -> y.append(" دسیلیارد ");
+                    case 67 -> y.append(" آندسیلیون ");
+                    case 70 -> y.append(" آندسیلیارد ");
+                    case 73 -> y.append(" دودسیلیون ");
+                    case 76 -> y.append("  دودسیلیارد");
+                    case 79 -> y.append(" تریدسیلیون ");
+                    case 82 -> y.append("  تریدسیلیارد");
+                    case 85 -> y.append("  کوادردسیلیون");
+                    case 88 -> y.append("  کوادردسیلیارد");
+                    case 91 -> y.append("  کویندسیلیون");
+                    case 94 -> y.append("  کویندسیلیارد");
+                    case 97 -> y.append("  سیدسیلیون");
+                    case 100 -> y.append(" سیدسیلیارد ");
+                    
                     default -> y.append("");
                 }
             }
@@ -246,8 +277,11 @@ public class MirrorWrite {
         System.err.println(" ==> " + s.nameNumber(0L));
         System.err.println(" ==> " + s.nameNumber(-123_456_789L));
         System.err.println(" ==> " + s.nameNumber(111_111_111_111_111L));
-        System.err.println(" ==> " + s.nameNumber(10023L));
+        System.err.println(" ==> " + s.nameNumber(10_023L));
+        System.err.println(" ==> " + s.nameNumber(123_456_789_123_456_789L));
+        System.err.println(" ==> " + s.nameNumber(Long.MAX_VALUE));
+        System.err.println(" ==> " + s.nameNumber(9_223_372_036_854_775_807L));
         System.err.println("____________________________________________");
-        System.err.println("" + s.number1(10_000_000_000L));
+        System.err.println("" + s.number1(2_147_483_650L));
     }   
 }
