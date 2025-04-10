@@ -492,8 +492,7 @@ public class NameNumber {
     
     public StringBuilder nameNumber1(BigInteger n) {
         StringBuilder y = new StringBuilder();
-        BigInteger a = BigInteger.valueOf(-1);
-        a = a.add(BigInteger.ONE);
+        BigInteger a = BigInteger.ZERO;
         
         if (n.compareTo(BigInteger.ZERO) < 0) {
             y.append(" منفی ");
@@ -504,19 +503,22 @@ public class NameNumber {
             y.append(" صفر ");
             
         } else {
-            
-            BigInteger b = n.remainder(BigInteger.valueOf(1000));
+            BigInteger b = n;
+            while (b.compareTo(BigInteger.valueOf(1000)) > 0) {
+                b = b.divide(BigInteger.valueOf(1000));
+                a = a.add(BigInteger.ONE);
+            }
             
             y.append(digitNumber1_nnn(b));
             y.append(digitNumber1_nn(b));
             y.append(digitNumber1_n(b));
             y.append(digitLevel1(a));
             
-            BigInteger f = n.divide(BigInteger.valueOf(1000));
+            Double c = Math.pow(1000, a.doubleValue());
+            BigInteger f = n.remainder(BigInteger.valueOf(c.longValue()));
             
             
             if (f.compareTo(BigInteger.ZERO) > 0) {
-                a = a.add(BigInteger.ZERO);
                 nameNumber(f);
             }
             
