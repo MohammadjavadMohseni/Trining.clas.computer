@@ -6,7 +6,7 @@ public class NameNumber {
     
     public StringBuilder number(BigInteger n) {
         StringBuilder z = new StringBuilder();
-        BigInteger a = BigInteger.valueOf(Long.MAX_VALUE - 100);
+        BigInteger a = n.subtract(BigInteger.valueOf(100));
         while (a.compareTo(n) <= 0) {
             z.append(nameNumber(a)).append(" <== ");
             z.append(System.lineSeparator());
@@ -349,11 +349,10 @@ public class NameNumber {
         return y;
     }
     
-    public StringBuilder digitNumber1_nnn(BigInteger n) {
+    public StringBuilder digitNumber1_nnn(int n) {
         StringBuilder z = new StringBuilder();
-        int d = n.intValue();
-        int a = d % 100;
-        d = d / 100;
+        int a = n % 100;
+        int d = n / 100;
         
         switch (d) {
             case 0 -> z.append("");
@@ -368,38 +367,25 @@ public class NameNumber {
             case 9 -> z.append(" نهصد ");
         }
         
-        if (a > 0) {
+        if (d > 0 && a > 0) {
             z.append(" و");
+        }
+        if (a > 9) {
+            z.append(digitNumber1_nn(n));
+        }
+        if (a > 19 && a < 10) {
+            z.append(digitNumber1_n(n));
         }
         
         return z;
     }
     
-    public StringBuilder digitNumber1_nn(BigInteger n) {
+    public StringBuilder digitNumber1_nn(int n) {
         StringBuilder z = new StringBuilder();
-        int d = n.intValue();
-        int a = d % 10;
-        d = d % 100;
+        int a = n % 10;
         
-        if (d < 20) {
-            
-            switch (d) {
-                
-                case 10 -> z.append(" ده ");
-                case 11 -> z.append(" یازده ");
-                case 12 -> z.append(" دوازده ");
-                case 13 -> z.append(" سیزده ");
-                case 14 -> z.append(" چهارده ");
-                case 15 -> z.append(" پانزده ");
-                case 16 -> z.append(" شانزده ");
-                case 17 -> z.append(" هیفده ");
-                case 18 -> z.append(" هیجده ");
-                case 19 -> z.append(" نوزده ");
-                default -> z.append("");
-            }
-            
-        } else {
-            d = d / 10;
+        if (n > 19){
+            int d = n / 10;
             
             switch (d) {
                 
@@ -416,83 +402,95 @@ public class NameNumber {
             if (a > 0) {
                 z.append(" و");
             }
-        }
-        return z;
-    }
-    
-    public StringBuilder digitNumber1_n(BigInteger n) {
-        StringBuilder z = new StringBuilder();
-        int d = n.intValue();
-        d = d % 100;
-        
-        if (d < 10 || d > 19) {
-            d = d % 10;
-            switch (d) {
-                case 0 -> z.append("");
-                case 1 -> z.append(" یک ");
-                case 2 -> z.append(" دو ");
-                case 3 -> z.append(" سه ");
-                case 4 -> z.append(" چهار ");
-                case 5 -> z.append(" پنج ");
-                case 6 -> z.append(" شش ");
-                case 7 -> z.append(" هفت ");
-                case 8 -> z.append(" هشت ");
-                case 9 -> z.append(" نه ");
-            }
-        }
-        return z;
-    }
-    
-    public StringBuilder digitLevel1(BigInteger n) {
-        StringBuilder y = new StringBuilder();
-        int d = n.intValue();
-        
-        switch (d) {
             
-            case 1 -> y.append("هزار ");
-            case 2 -> y.append("میلیون ");
-            case 3 -> y.append("میلیارد ");
-            case 4 -> y.append(" بیلیون ");
-            case 5 -> y.append(" بیلیارد ");
-            case 6 -> y.append(" تریلیون ");
-            case 7 -> y.append("  تریلیارد");
-            case 8 -> y.append("  کوآدریلیون");
-            case 9 -> y.append(" کادریلیارد ");
-            case 10 -> y.append("  کوینتیلیون");
-            case 11 -> y.append(" کوانتیلیارد ");
-            case 12 -> y.append(" سکستیلیون ");
-            case 13 -> y.append(" سکستیلیارد ");
-            case 14 -> y.append("  سپتیلیون");
-            case 15 -> y.append(" سپتیلیارد ");
-            case 16 -> y.append(" اکتیلیون ");
-            case 17 -> y.append(" اکتیلیارد ");
-            case 18 -> y.append(" نانیلیون ");
-            case 19 -> y.append(" نانیلیارد ");
-            case 20 -> y.append("  دسیلیون");
-            case 21 -> y.append(" دسیلیارد ");
-            case 22 -> y.append(" آندسیلیون ");
-            case 23 -> y.append(" آندسیلیارد ");
-            case 24 -> y.append(" دودسیلیون ");
-            case 25 -> y.append("  دودسیلیارد");
-            case 26 -> y.append(" تریدسیلیون ");
-            case 27 -> y.append("  تریدسیلیارد");
-            case 28 -> y.append("  کوادردسیلیون");
-            case 29 -> y.append("  کوادردسیلیارد");
-            case 30 -> y.append("  کویندسیلیون");
-            case 31 -> y.append("  کویندسیلیارد");
-            case 32 -> y.append("  سیدسیلیون");
-            case 33 -> y.append(" سیدسیلیارد ");
+        } else {
+            
+            switch (n) {
+                
+                case 10 -> z.append(" ده ");
+                case 11 -> z.append(" یازده ");
+                case 12 -> z.append(" دوازده ");
+                case 13 -> z.append(" سیزده ");
+                case 14 -> z.append(" چهارده ");
+                case 15 -> z.append(" پانزده ");
+                case 16 -> z.append(" شانزده ");
+                case 17 -> z.append(" هیفده ");
+                case 18 -> z.append(" هیجده ");
+                case 19 -> z.append(" نوزده ");
+                default -> z.append("");
+            }
+            
+        }
+        
+        return z;
+    }
+    
+    public StringBuilder digitNumber1_n(int n) {
+        StringBuilder z = new StringBuilder();
+        switch (n) {
+            case 0 -> z.append("");
+            case 1 -> z.append(" یک ");
+            case 2 -> z.append(" دو ");
+            case 3 -> z.append(" سه ");
+            case 4 -> z.append(" چهار ");
+            case 5 -> z.append(" پنج ");
+            case 6 -> z.append(" شش ");
+            case 7 -> z.append(" هفت ");
+            case 8 -> z.append(" هشت ");
+            case 9 -> z.append(" نه ");
+        }
+        return z;
+    }
+    
+    public StringBuilder digitLevel1(int n) {
+        StringBuilder y = new StringBuilder();
+        
+        switch (n) {
+            
+            case 32 -> y.append("هزار ");
+            case 31 -> y.append("میلیون ");
+            case 30 -> y.append("میلیارد ");
+            case 29 -> y.append(" بیلیون ");
+            case 28 -> y.append(" بیلیارد ");
+            case 27 -> y.append(" تریلیون ");
+            case 26 -> y.append("  تریلیارد");
+            case 25 -> y.append("  کوآدریلیون");
+            case 24 -> y.append(" کادریلیارد ");
+            case 23 -> y.append("  کوینتیلیون");
+            case 22 -> y.append(" کوانتیلیارد ");
+            case 21 -> y.append(" سکستیلیون ");
+            case 20 -> y.append(" سکستیلیارد ");
+            case 19 -> y.append("  سپتیلیون");
+            case 18 -> y.append(" سپتیلیارد ");
+            case 17 -> y.append(" اکتیلیون ");
+            case 16 -> y.append(" اکتیلیارد ");
+            case 15 -> y.append(" نانیلیون ");
+            case 14 -> y.append(" نانیلیارد ");
+            case 13 -> y.append("  دسیلیون");
+            case 12 -> y.append(" دسیلیارد ");
+            case 11 -> y.append(" آندسیلیون ");
+            case 10 -> y.append(" آندسیلیارد ");
+            case 9 -> y.append(" دودسیلیون ");
+            case 8 -> y.append("  دودسیلیارد");
+            case 7 -> y.append(" تریدسیلیون ");
+            case 6 -> y.append("  تریدسیلیارد");
+            case 5 -> y.append("  کوادردسیلیون");
+            case 4 -> y.append("  کوادردسیلیارد");
+            case 3 -> y.append("  کویندسیلیون");
+            case 2 -> y.append("  کویندسیلیارد");
+            case 1 -> y.append("  سیدسیلیون");
+            case 0 -> y.append(" سیدسیلیارد ");
             default -> y.append("");
         }
-        
-        y.append(" و");
-        
+        if (n < 33) {
+            y.append(" و");
+        }
         return y;
     }
     
-    public StringBuilder nameNumber1(BigInteger n) {
+    public StringBuilder nameNumber1(BigInteger n, StringBuilder[] z, int a) {
         StringBuilder y = new StringBuilder();
-        BigInteger a = BigInteger.ZERO;
+        BigInteger d = BigInteger.valueOf(1000);
         
         if (n.compareTo(BigInteger.ZERO) < 0) {
             y.append(" منفی ");
@@ -503,38 +501,41 @@ public class NameNumber {
             y.append(" صفر ");
             
         } else {
-            BigInteger b = n;
-            while (b.compareTo(BigInteger.valueOf(1000)) > 0) {
-                b = b.divide(BigInteger.valueOf(1000));
-                a = a.add(BigInteger.ONE);
+            int b = n.remainder(d).intValue();
+            
+            z[a] = y.append(digitNumber1_nnn(b));
+            if (b > 0) {
+                z[a] = y.append(digitLevel1(a));
             }
             
-            y.append(digitNumber1_nnn(b));
-            y.append(digitNumber1_nn(b));
-            y.append(digitNumber1_n(b));
-            y.append(digitLevel1(a));
-            
-            Double c = Math.pow(1000, a.doubleValue());
-            BigInteger f = n.remainder(BigInteger.valueOf(c.longValue()));
+            BigInteger f = n.divide(d);
             
             
             if (f.compareTo(BigInteger.ZERO) > 0) {
-                nameNumber(f);
+                a -= 1;
+                nameNumber1(f, z, a);
             }
-            
-            y.append(y);
+            y.append(z.toString());
         }
         
+        return y;
+    }
+    
+    public StringBuilder writeNameNumber(BigInteger n) {
+        StringBuilder[] z = new StringBuilder[34];
+        int a = 33;
+        StringBuilder y = new StringBuilder();
+        y.append(nameNumber1(n, z, a));
         return y;
     }
 
     public static void main(String[] args) {
         NameNumber n = new NameNumber();
-        System.err.println(" ==> " + n.nameNumber(BigInteger.valueOf(Long.MAX_VALUE)));
-        System.err.println(" ==> " + n.nameNumber(BigInteger.valueOf(Long.MIN_VALUE)));
-        System.err.println(" ==> " + n.nameNumber(BigInteger.ZERO));
+        System.err.println(" ==> " + n.writeNameNumber(BigInteger.valueOf(Long.MAX_VALUE)));
+        System.err.println(" ==> " + n.writeNameNumber(BigInteger.valueOf(Long.MIN_VALUE)));
+        System.err.println(" ==> " + n.writeNameNumber(BigInteger.ZERO));
         System.err.println(" ==> " + n.number(BigInteger.valueOf(Long.MAX_VALUE)));
-        System.err.println(" ==> " + n.nameNumber(BigInteger.valueOf
+        System.err.println(" ==> " + n.writeNameNumber(BigInteger.valueOf
         (9000000000000000000L).add(BigInteger.valueOf(9000000000000000000L))));
     }
 }
