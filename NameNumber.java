@@ -1,8 +1,27 @@
 package trainig.string;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 public class NameNumber {
+    
+    String[] digitNameHundreds = { "", " صد", " دویست", " سیصد", " چهارصد",
+        " پانصد", " ششصد", " هفتصد", " هشتصد", " نهصد"};
+    
+    String[] digitNameTens = { "", " ده", " بیست", " سی", " چهل", " پنجاه",
+        " شصت", " هفتاد", " هشتاد", " نود"};
+    
+    String[] digitNameOnes = { "", " یک", " دو", " سه", " چهار", " پنج",
+        " شش", " هفت", " هشت", " نه"};
+    
+    String[] digitNumberOrder = { "", " هزار", " میلیون", " میلیارد", " بیلیون",
+        " بیلیارد", " تریلیون", " تریلیارد", " کوآدریلیون", " کادریلیارد",
+        " کوینتیلیون", " کوانتیلیارد", " سکستیلیون", " سکستیلیارد", " سپتیلیون",
+        " سپتیلیارد", " اکتیلیون", " اکتیلیارد", " نانیلیون", " نانیلیارد",
+        " دسیلیون", " دسیلیارد", " آندسیلیون", " آندسیلیارد", " دودسیلیون",
+        " دودسیلیارد", " تریدسیلیون", " تریدسیلیارد", " کوادردسیلیون",
+        " کوادردسیلیارد", " کویندسیلیون", " کویندسیلیارد", " سیدسیلیون",
+        " سیدسیلیارد"};
     
     public StringBuilder number(BigInteger n) {
         StringBuilder z = new StringBuilder();
@@ -349,148 +368,51 @@ public class NameNumber {
         return y;
     }
     
-    public StringBuilder digitNumber1_nnn(int n) {
-        StringBuilder z = new StringBuilder();
-        int a = n % 100;
-        int d = n / 100;
-        
-        switch (d) {
-            case 0 -> z.append("");
-            case 1 -> z.append(" صد ");
-            case 2 -> z.append(" دویست ");
-            case 3 -> z.append(" سیصد ");
-            case 4 -> z.append(" چهارصد ");
-            case 5 -> z.append(" پانصد ");
-            case 6 -> z.append(" شیشصد ");
-            case 7 -> z.append(" هفتصد ");
-            case 8 -> z.append(" هشتصد ");
-            case 9 -> z.append(" نهصد ");
-        }
-        
-        if (d > 0 && a > 0) {
-            z.append(" و");
-        }
-        if (a > 9) {
-            z.append(digitNumber1_nn(n));
-        }
-        if (a > 19 && a < 10) {
-            z.append(digitNumber1_n(n));
-        }
-        
-        return z;
-    }
-    
-    public StringBuilder digitNumber1_nn(int n) {
-        StringBuilder z = new StringBuilder();
-        int a = n % 10;
-        
-        if (n > 19){
-            int d = n / 10;
-            
-            switch (d) {
-                
-                case 2 -> z.append(" بیست ");
-                case 3 -> z.append(" سی ");
-                case 4 -> z.append(" چهل ");
-                case 5 -> z.append(" پنجاه ");
-                case 6 -> z.append(" شصت ");
-                case 7 -> z.append(" هفتاد ");
-                case 8 -> z.append(" هشتاد ");
-                case 9 -> z.append(" نود ");
-                default -> z.append("");
+    public String digitNumber(int n) {
+        String y = "";
+        int h = n / 100;
+        int t = n % 100;
+        int o = n % 10;
+        y = y + digitNameHundreds[h];
+        switch (t) {
+            case 11 -> "";
+            case 12 -> "";
+            case 13 -> "";
+            case 14 -> "";
+            case 15 -> "";
+            case 16 -> "";
+            case 17 -> "";
+            case 18 -> "";
+            case 19 -> "";
+            default -> {
+                t = t / 10;
+                y = y + digitNameTens[t];
             }
-            if (a > 0) {
-                z.append(" و");
-            }
-            
-        } else {
-            
-            switch (n) {
-                
-                case 10 -> z.append(" ده ");
-                case 11 -> z.append(" یازده ");
-                case 12 -> z.append(" دوازده ");
-                case 13 -> z.append(" سیزده ");
-                case 14 -> z.append(" چهارده ");
-                case 15 -> z.append(" پانزده ");
-                case 16 -> z.append(" شانزده ");
-                case 17 -> z.append(" هیفده ");
-                case 18 -> z.append(" هیجده ");
-                case 19 -> z.append(" نوزده ");
-                default -> z.append("");
-            }
-            
         }
-        
-        return z;
-    }
-    
-    public StringBuilder digitNumber1_n(int n) {
-        StringBuilder z = new StringBuilder();
-        switch (n) {
-            case 0 -> z.append("");
-            case 1 -> z.append(" یک ");
-            case 2 -> z.append(" دو ");
-            case 3 -> z.append(" سه ");
-            case 4 -> z.append(" چهار ");
-            case 5 -> z.append(" پنج ");
-            case 6 -> z.append(" شش ");
-            case 7 -> z.append(" هفت ");
-            case 8 -> z.append(" هشت ");
-            case 9 -> z.append(" نه ");
-        }
-        return z;
-    }
-    
-    public StringBuilder digitLevel1(int n) {
-        StringBuilder y = new StringBuilder();
-        
-        switch (n) {
-            
-            case 32 -> y.append("هزار ");
-            case 31 -> y.append("میلیون ");
-            case 30 -> y.append("میلیارد ");
-            case 29 -> y.append(" بیلیون ");
-            case 28 -> y.append(" بیلیارد ");
-            case 27 -> y.append(" تریلیون ");
-            case 26 -> y.append("  تریلیارد");
-            case 25 -> y.append("  کوآدریلیون");
-            case 24 -> y.append(" کادریلیارد ");
-            case 23 -> y.append("  کوینتیلیون");
-            case 22 -> y.append(" کوانتیلیارد ");
-            case 21 -> y.append(" سکستیلیون ");
-            case 20 -> y.append(" سکستیلیارد ");
-            case 19 -> y.append("  سپتیلیون");
-            case 18 -> y.append(" سپتیلیارد ");
-            case 17 -> y.append(" اکتیلیون ");
-            case 16 -> y.append(" اکتیلیارد ");
-            case 15 -> y.append(" نانیلیون ");
-            case 14 -> y.append(" نانیلیارد ");
-            case 13 -> y.append("  دسیلیون");
-            case 12 -> y.append(" دسیلیارد ");
-            case 11 -> y.append(" آندسیلیون ");
-            case 10 -> y.append(" آندسیلیارد ");
-            case 9 -> y.append(" دودسیلیون ");
-            case 8 -> y.append("  دودسیلیارد");
-            case 7 -> y.append(" تریدسیلیون ");
-            case 6 -> y.append("  تریدسیلیارد");
-            case 5 -> y.append("  کوادردسیلیون");
-            case 4 -> y.append("  کوادردسیلیارد");
-            case 3 -> y.append("  کویندسیلیون");
-            case 2 -> y.append("  کویندسیلیارد");
-            case 1 -> y.append("  سیدسیلیون");
-            case 0 -> y.append(" سیدسیلیارد ");
-            default -> y.append("");
-        }
-        if (n < 33) {
-            y.append(" و");
-        }
+        y = y + digitNameOnes[o];
         return y;
     }
     
-    public StringBuilder nameNumber1(BigInteger n, StringBuilder[] z, int a) {
-        StringBuilder y = new StringBuilder();
+    public String nameNumber(BigInteger n, String[] z) {
         BigInteger d = BigInteger.valueOf(1000);
+        int b = n.remainder(d).intValue();
+        z[a] = digitNumber(b);
+        if (b > 0) {
+            z[a] = digitNumberOrder[a];
+        }
+        BigInteger f = n.divide(d);
+        
+        if (f.compareTo(BigInteger.ZERO) > 0) {
+            a = a++;
+            nameNumber(f, z);
+        }
+        return Arrays.toString(z);
+    }
+    
+    public StringBuilder writeNameNumber(BigInteger n) {
+        int a = 0;
+        String[] z = new String[34];
+        StringBuilder y = new StringBuilder();
         
         if (n.compareTo(BigInteger.ZERO) < 0) {
             y.append(" منفی ");
@@ -501,31 +423,8 @@ public class NameNumber {
             y.append(" صفر ");
             
         } else {
-            int b = n.remainder(d).intValue();
-            
-            z[a] = y.append(digitNumber1_nnn(b));
-            if (b > 0) {
-                z[a] = y.append(digitLevel1(a));
-            }
-            
-            BigInteger f = n.divide(d);
-            
-            
-            if (f.compareTo(BigInteger.ZERO) > 0) {
-                a -= 1;
-                nameNumber1(f, z, a);
-            }
-            y.append(z.toString());
+        y.append(nameNumber1(n, z));
         }
-        
-        return y;
-    }
-    
-    public StringBuilder writeNameNumber(BigInteger n) {
-        StringBuilder[] z = new StringBuilder[34];
-        int a = 33;
-        StringBuilder y = new StringBuilder();
-        y.append(nameNumber1(n, z, a));
         return y;
     }
 
